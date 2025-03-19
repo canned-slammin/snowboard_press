@@ -16,7 +16,6 @@
 - Watlow PID controllers for heat blanket control
 - 12V solenoids for pressure control
 - 3.3V - 5V Mechanical relays for solenoid control
-- Analog pressure sensors for air hose
 - LCD capacitive touchscreen as Human Machine Interface (HMI)
 - Arduino-style connectors for touchscreen
 - 12V power input
