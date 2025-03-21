@@ -89,6 +89,17 @@ I2C1
 UART1
 UART2
 
+### Power Calculation
+
+<ul>
+<li>MCU:
+<li>Relays:
+<li>Captouch:
+<li>Level Shifter:
+<li>ADC:
+<li>Pressure Sensor:
+</ul>
+
 ## Software Modules
 
 ### Pressure Control
