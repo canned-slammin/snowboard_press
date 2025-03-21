@@ -2,24 +2,35 @@
 
 ## High Level Description
 
-- Pressure and heat controller with touchscreen interface
+<ul>
+<li>Pressure and heat controller with touchscreen interface  
+</ul>
 
-- Main CPU is STM32L475VGT6 (subject to change based on required features)
-- CPU will be running Zephyr RTOS
-- Program functionality will be structured around Zephyr's State Machine Framework
+<ul>
+<li>Main CPU is STM32L475VGT6 (subject to change based on required features)
+<li>CPU will be running Zephyr RTOS
+<li>Program functionality will be structured around Zephyr's State Machine Framework
+</ul>
 
-- Pressure sense performed by analog sensor through ADC on I2C bus
-- Pressure control performed by solenoid valves triggered by relays on GPIO bus
-- Heat control is performed by communication with Watlow PID controllers via ModBus protocol on UART over RS-485
+<ul>
+<li>Pressure sense performed by analog sensor through ADC on I2C bus
+<li>Pressure control performed by solenoid valves triggered by relays on GPIO bus
+<li>Heat control is performed by communication with Watlow PID controllers via ModBus protocol on UART over RS-485
+</ul>
 
-- Touchscreen control will be on I2C bus using the LVGL handler; the handler is polling, so other I2C peripherals will be need to be on a separate bus
-- LCD display will be communicated with via SPI
+<ul>
+<li>Touchscreen control will be on I2C bus using the LVGL handler; the handler is polling, so other I2C peripherals will be need to be on a separate bus
+<li>LCD display will be communicated with via SPI
+</ul>
 
-- Interface will have three menus: Manual Control, Run Profile, and Set Profile
-- Manual control will have input for Top Heat, Bottom Heat, and Pressure
-- Run Profile will monitor profile status and accept input for Run and Cancel
-- Set Profile will accept input for profile parameters
- 
+<ul>
+<li>Interface will have three menus: Manual Control, Run Profile, and Set Profile
+<ul>
+<li>Manual control will have input for Top Heat, Bottom Heat, and Pressure
+<li>Run Profile will monitor profile status and accept input for Run and Cancel
+<li>Set Profile will accept input for profile parameters
+</ul>
+</ul>
 
 ## Hardware Modules
 
@@ -123,5 +134,19 @@ UART2
 - Indicator: Pressure Setpoint (from profile object)
 - Indicator: Hold Time (from profile object)
 - Indicator: Dwell Time (from profile object)
+- Button: Top Heat Dwell Temp up (to profile object)
+- Button: Top Heat Dwell Temp down (to profile object)
+- Button: Bottom Heat Dwell Temp up (to profile object)
+- Button: Bottom Heat Dwell Temp down (to profile object)
+- Button: Top Heat Cool Temp up (to profile object)
+- Button: Top Heat Cool Temp down (to profile object)
+- Button: Bottom Heat Cool Temp up (to profile object)
+- Button: Bottom Heat Cool Temp down (to profile object)
+- Button: Pressure Setpoint up (to profile object)
+- Button: Pressure Setpoint down (to profile object)
+- Button: Hold Time up (to profile object)
+- Button: Hold Time down (to profile object)
+- Button: Dwell Time up (to profile object)
+- Button: Dwell Time down (to profile object)
 
 
