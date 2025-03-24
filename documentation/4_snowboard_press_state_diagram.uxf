@@ -28,144 +28,13 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>26</x>
+      <x>117</x>
       <y>65</y>
       <w>949</w>
-      <h>1339</h>
+      <h>1534</h>
     </coordinates>
     <panel_attributes>Started
 --
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 valign=top
 </panel_attributes>
@@ -174,15 +43,16 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>65</x>
+      <x>156</x>
       <y>104</y>
       <w>871</w>
-      <h>819</h>
+      <h>962</h>
     </coordinates>
     <panel_attributes>Menus
 --
 
-entry/ start timer(GRAPHICS_PERIOD)
+entry/       start timer(GRAPHICS_PERIOD)
+             for button in menus_buttons: lv_obj_clear_flag(button, HIDDEN)
 
 WAIT_TIMER / stop timer
              lv_task_handler()
@@ -194,92 +64,16 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>65</x>
-      <y>975</y>
+      <x>156</x>
+      <y>1144</y>
       <w>871</w>
-      <h>403</h>
+      <h>208</h>
     </coordinates>
-    <panel_attributes>MIDIHandler
+    <panel_attributes>ManualHandler
 --
-KEYSET_UPDATE/         read keysets[obj-&gt;keyset_index].io_expander
-                       compare io_expander bitfile to keyset bitfield
-                       update keys in keyset that changed
-                   
-PLAY_DRUMPAD/          play_drumpad(obj-&gt;drumpad_index)
 
-CHANGE_KEY_INSTR/      change_instrument(keysets[obj-&gt;keyset_index].instrument,
-                                         keysets[obj-&gt;keyset_index].channel,
-                                         keysets[obj-&gt;keyset_index].bank)
-                       
-                       Send(CHANGE_K_INSTR_LABEL,
-                            InstrumentMenu, 
-                            obj-&gt;keyset_index,
-                            keysets[obj-&gt;keyset_index].bank
-                            keysets[obj-&gt;keyset_index].instrument)
-                            
-CHANGE_DRUM_INSTR/     change_instrument(drumpads[obj-&gt;drumpad_index].instrument,
-                                         drumpads[obj-&gt;drumpad_index].channel,
-                                         drumpads[obj-&gt;drumpad_index].bank)
-                       
-                       Send(CHANGE_D_INSTR_LABEL,
-                           InstrumentMenu, 
-                           obj-&gt;drumpad_index,
-                           drumpads[obj-&gt;drumpad_index].bank,
-                           drumpads[obj-&gt;drumpad_index].instrument)
                             
                             
-valign=top
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>78</x>
-      <y>780</y>
-      <w>845</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>DrumpadMenu
---
-entry/ for drumpad in drumpads: lv_obj_clear_flag(drumpad, HIDDEN)
-exit/  for drumpad in drumpads: lv_obj_add_flag(drumpad, HIDDEN)
-valign=top
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>78</x>
-      <y>312</y>
-      <w>845</w>
-      <h>390</h>
-    </coordinates>
-    <panel_attributes>InstrumentMenu
---
-entry/ for label in key_labels:  lv_obj_clear_flag(label, HIDDEN)
-       for label in drum_labels: lv_obj_clear_flag(label, HIDDEN)
-       for btn in key_btns:      lv_obj_clear_flag(btn, HIDDEN)
-       for btn in drum_btns:     lv_obj_clear_flag(btn, HIDDEN)
-
-exit/  for label in key_labels:  lv_obj_add_flag(label, HIDDEN)
-       for label in drum_labels: lv_obj_add_flag(label, HIDDEN)
-       for btn in key_btns:      lv_obj_add_flag(btn, HIDDEN)
-       for btn in drum_btns:     lv_obj_add_flag(btn, HIDDEN)
-                         
-CHANGE_K_INSTR_LABEL/   bank = obj-&gt;bank
-                        instrument = obj-&gt;instrument
-                        label_text = instr_labels[bank][instrument]
-                        lv_label_set_text(key_labels[obj-&gt;keyset_index].obj, label_text)
-
-CHANGE_D_INSTR_LABEL/   bank = obj-&gt;bank
-                        instrument = obj-&gt;instrument
-                        label_text = find_instr_label(bank, instrument)
-                        lv_label_set_text(drum_labels[obj-&gt;drumpad_index].obj, label_text) 
-
-
-                     
 valign=top
 </panel_attributes>
     <additional_attributes/>
@@ -287,7 +81,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>403</x>
+      <x>494</x>
       <y>0</y>
       <w>26</w>
       <h>26</h>
@@ -298,7 +92,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
+      <x>507</x>
       <y>0</y>
       <w>104</w>
       <h>91</h>
@@ -307,34 +101,21 @@ valign=top
     <additional_attributes>10.0;10.0;60.0;10.0;60.0;50.0</additional_attributes>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>221</x>
-      <y>715</y>
-      <w>104</w>
-      <h>39</h>
-    </coordinates>
-    <panel_attributes>MENU_NEXT
-MENU_PREV
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
-      <y>260</y>
+      <x>507</x>
+      <y>273</y>
       <w>104</w>
-      <h>78</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0;60.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>403</x>
-      <y>260</y>
+      <x>494</x>
+      <y>273</y>
       <w>26</w>
       <h>26</h>
     </coordinates>
@@ -344,19 +125,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>208</x>
-      <y>689</y>
-      <w>39</w>
-      <h>117</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>663</x>
-      <y>689</y>
+      <x>754</x>
+      <y>429</y>
       <w>39</w>
       <h>117</h>
     </coordinates>
@@ -366,14 +136,173 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>676</x>
-      <y>715</y>
+      <x>767</x>
+      <y>468</y>
       <w>104</w>
       <h>39</h>
     </coordinates>
     <panel_attributes>MENU_NEXT
-MENU_PREV
 style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>377</x>
+      <y>429</y>
+      <w>39</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>390</x>
+      <y>650</y>
+      <w>104</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>MENU_PREV
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>169</x>
+      <y>702</y>
+      <w>845</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>SetProfileMenu
+--
+entry/ for button in set_profile_buttons:          lv_obj_clear_flag(button, HIDDEN)
+       for indicator in set_profile_indicators:    lv_obj_clear_flag(indicator, HIDDEN)
+
+exit/  for button in set_profile_buttons:          lv_obj_add_flag(button, HIDDEN)
+       for indicator in set_profile_indicators:    lv_obj_add_flag(indicator, HIDDEN)
+
+       
+
+TOP_DWELL_TEMP_UP /        profile-&gt;t_dwell_temp_f++
+TOP_DWELL_TEMP_DOWN /      profile-&gt;t_dwell_temp_f--
+BTM_DWELL_TEMP_UP /        profile-&gt;b_dwell_temp_f++
+BTM_DWELL_TEMP_DOWN /      profile-&gt;b_dwell_temp_f--
+TOP_COOL_TEMP_UP /         profile-&gt;t_cool_temp_f++
+TOP_COOL_TEMP_DOWN /       profile-&gt;t_cool_temp_f--
+BTM_COOL_TEMP_UP /         profile-&gt;b_cool_temp_f++
+BTM_COOL_TEMP_DOWN /       profile-&gt;b_cool_temp_f--
+P_SETPOINT_UP /
+P_SETPOINT_DOWN / 
+H_TIME_UP / 
+H_TIME_DOWN / 
+D_TIME_UP / 
+D_TIME_DOWN /           
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>377</x>
+      <y>611</y>
+      <w>39</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>754</x>
+      <y>611</y>
+      <w>39</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>767</x>
+      <y>650</y>
+      <w>104</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>MENU_NEXT
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>403</x>
+      <y>468</y>
+      <w>104</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>MENU_PREV
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>169</x>
+      <y>520</y>
+      <w>845</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>RunProfileMenu
+--
+entry/ for button in run_profile_buttons:          lv_obj_clear_flag(button, HIDDEN)
+       for indicator in run_profile_indicators:    lv_obj_clear_flag(indicator, HIDDEN)
+
+exit/  for button in run_profile_buttons:          lv_obj_add_flag(button, HIDDEN)
+       for indicator in run_profile_indicators:    lv_obj_add_flag(indicator, HIDDEN)
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>169</x>
+      <y>338</y>
+      <w>845</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>ManualMenu
+--
+entry/ for button in manual_buttons:          lv_obj_clear_flag(button, HIDDEN)
+       for indicator in manual_indicators:    lv_obj_clear_flag(indicator, HIDDEN)
+
+exit/  for button in manual_buttons:          lv_obj_add_flag(button, HIDDEN)
+       for indicator in manual_indicators:    lv_obj_add_flag(indicator, HIDDEN)
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>156</x>
+      <y>1365</y>
+      <w>871</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>RunProfile
+--
+
+                            
+                            
+valign=top
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
