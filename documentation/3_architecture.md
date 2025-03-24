@@ -86,6 +86,7 @@ GPIOA/B/C (whichever accessible thru arduino connectors)
 GPIO? (ADC Drdy)
 SPI1
 I2C1
+I2C2 (could potentially avoid using interrupts in LVGL)
 UART1
 UART2
 
