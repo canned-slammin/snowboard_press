@@ -5416,7 +5416,7 @@
     (property "Value" "SW_SPDT" (id 1) (at 146.05 64.135 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN" (id 2) (at 146.05 69.85 0)
+    (property "Footprint" "Button_Switch_SMD:SW_SPDT_PCM12" (id 2) (at 146.05 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 146.05 69.85 0)
@@ -6416,7 +6416,7 @@
       (reference "R20") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/c3e2a4b6-1948-4c98-85ea-7f6f38296147"
-      (reference "SW1") (unit 1) (value "SW_SPDT") (footprint "Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN")
+      (reference "SW1") (unit 1) (value "SW_SPDT") (footprint "Button_Switch_SMD:SW_SPDT_PCM12")
     )
     (path "/1f822ab7-9aa2-4492-a95c-d6a675a300a1"
       (reference "U1") (unit 1) (value "LD1117S50TR_SOT223") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
