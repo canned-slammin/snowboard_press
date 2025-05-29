@@ -172,7 +172,7 @@
 
   (footprint "Package_TO_SOT_SMD:SOT-23-5" (layer "F.Cu")
     (tedit 5F6F9B37) (tstamp 062a7b0f-0b24-4985-aad0-22a600f61ace)
-    (at 113.128 74.309)
+    (at 162.108 96.586)
     (descr "SOT, 5 Pin (https://www.jedec.org/sites/default/files/docs/Mo-178c.PDF variant AA), generated with kicad-footprint-generator ipc_gullwing_generator.py")
     (tags "SOT TO_SOT_SMD")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -308,26 +308,26 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp 16864e90-3a06-480a-9f1e-d86da844a069)
-    (at 173.828 73.647 -90)
+    (at 123.952 76.962 -90)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/70b380d3-3856-4255-af62-fd9df70ff722")
     (attr through_hole)
-    (fp_text reference "J14" (at -0.865 -3.66) (layer "F.SilkS")
+    (fp_text reference "J14" (at -0.865 8.636) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 424c70dc-c6b5-4613-ac02-b2d40c638811)
     )
-    (fp_text value "UART4" (at 1.04 -4.55) (layer "F.SilkS")
+    (fp_text value "UART4" (at 1.016 9.398) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 1443a005-7514-4bc3-8817-bf70f4e6b1f3)
     )
-    (fp_text user "TX" (at 3.58 0 90 unlocked) (layer "F.SilkS")
+    (fp_text user "TX" (at 2.794 0 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 089d375f-1016-43bc-8976-1ce858a68b14)
     )
-    (fp_text user "RX" (at 3.58 2.55 90 unlocked) (layer "F.SilkS")
+    (fp_text user "RX" (at 2.794 2.54 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 2648e4dc-4bf0-4538-ab3d-d565e27ed9e0)
     )
@@ -466,7 +466,7 @@
 
   (footprint "Resistor_SMD:R_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 21f71593-19bf-4688-8dc8-19d33559bbe9)
-    (at 168.778 99.759)
+    (at 168.389 116.564)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -680,26 +680,26 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp 31a66a55-2837-46a6-905b-35553a72c38b)
-    (at 173.728 65.509 -90)
+    (at 123.967 63.246 -90)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/ba332e87-3519-4751-ac8c-5549ca6482ff")
     (attr through_hole)
-    (fp_text reference "J12" (at -0.7 -3.5) (layer "F.SilkS")
+    (fp_text reference "J12" (at -0.884 8.651) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp a8bed840-f6c5-47f1-b280-03973c71e83d)
     )
-    (fp_text value "USART1" (at 1.2 -4.8) (layer "F.SilkS")
+    (fp_text value "USART1" (at 1.016 9.921) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp fdc3325c-6eb8-4916-a839-7c2638b86dbd)
     )
-    (fp_text user "RX" (at 2.9 2.5 90 unlocked) (layer "F.SilkS")
+    (fp_text user "RX" (at 2.794 2.525 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 1392423f-1482-4199-b173-0138089cac8f)
     )
-    (fp_text user "TX" (at 3 -0.2 90 unlocked) (layer "F.SilkS")
+    (fp_text user "TX" (at 2.794 -0.015 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp b031d96d-763c-4ccd-a515-bb6d6d0ab79f)
     )
@@ -723,9 +723,9 @@
     (fp_line (start -1.27 6.35) (end -1.27 -0.635) (layer "F.Fab") (width 0.1) (tstamp c18cdad5-1789-4761-8f65-3d97ef77dad8))
     (fp_line (start -1.27 -0.635) (end -0.635 -1.27) (layer "F.Fab") (width 0.1) (tstamp c46bed4d-4f76-4a22-8b95-4637359e5014))
     (pad "1" thru_hole rect (at 0 0 270) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
-      (net 44 "USART1_RX") (pinfunction "Pin_1") (pintype "passive") (tstamp 42b32ad5-5443-47a0-bb33-6c6389a1fe8c))
+      (net 45 "USART1_TX") (pinfunction "Pin_1") (pintype "passive") (tstamp 42b32ad5-5443-47a0-bb33-6c6389a1fe8c))
     (pad "2" thru_hole oval (at 0 2.54 270) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
-      (net 45 "USART1_TX") (pinfunction "Pin_2") (pintype "passive") (tstamp f76cc393-c28e-4bea-8540-59561a9a26f5))
+      (net 44 "USART1_RX") (pinfunction "Pin_2") (pintype "passive") (tstamp f76cc393-c28e-4bea-8540-59561a9a26f5))
     (pad "3" thru_hole oval (at 0 5.08 270) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 2 "GND") (pinfunction "Pin_3") (pintype "passive") (tstamp c412207b-b002-447f-b789-320b94249de0))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl"
@@ -823,14 +823,14 @@
 
   (footprint "Capacitor_SMD:C_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 362bd4d1-dcc2-42d1-8787-ae41382711dd)
-    (at 149.563 58.764)
+    (at 149.568 58.226)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/d4638303-733a-4b0d-a5c7-0b5d08b25c4a")
     (attr smd)
-    (fp_text reference "C17" (at 3.275 0) (layer "F.SilkS")
+    (fp_text reference "C17" (at 0.043 -3.646) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp b887210b-eeed-454b-bf44-f9d90cc7cfad)
     )
@@ -954,7 +954,7 @@
 
   (footprint "Resistor_SMD:R_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 40c6a299-0acf-4b1d-92e9-b7281eac4f46)
-    (at 168.728 101.559)
+    (at 168.339 118.364)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1000,7 +1000,7 @@
 
   (footprint "Resistor_SMD:R_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 42ee16bf-b799-4cb2-9fe5-5fa28f553134)
-    (at 168.828 94.409)
+    (at 168.439 111.214)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1271,7 +1271,7 @@
 
   (footprint "Capacitor_SMD:C_0805_2012Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 6512b8ea-c88f-4766-aa95-11c2c74c4fb9)
-    (at 107.628 74.309 -90)
+    (at 156.608 96.586 -90)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1473,7 +1473,7 @@
 
   (footprint "Capacitor_SMD:C_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 800cbd5e-cf84-4fc3-a386-658ebcb42ac9)
-    (at 109.878 74.059 -90)
+    (at 158.858 96.336 -90)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1515,7 +1515,7 @@
 
   (footprint "Capacitor_SMD:C_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 81ad87ad-119e-49c2-947f-340b24dfc8ef)
-    (at 118.878 74.059 -90)
+    (at 167.858 96.336 -90)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1600,7 +1600,7 @@
 
   (footprint "Capacitor_SMD:C_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp 8d3b6a5d-cb43-4415-9e58-5fba3fc70e5e)
-    (at 115.128 77.059)
+    (at 164.108 99.336)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -1726,18 +1726,18 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp 8e661ddc-aa22-471e-a0b2-5f2927548520)
-    (at 179.578 124.709)
+    (at 183.642 86.36 180)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/fc4d52bb-149c-4a53-b098-6dcf71b7b802")
     (attr through_hole)
-    (fp_text reference "J8" (at 1 5.525 90) (layer "F.SilkS")
+    (fp_text reference "J8" (at -0.762 7.112) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp e2ae98f4-da59-4473-8c20-9dbee053b6be)
     )
-    (fp_text value "I2C2" (at -1 6.275 90) (layer "F.SilkS")
+    (fp_text value "I2C2" (at 0.075 5.35) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp cd1a8c3f-3cb5-44c2-868e-358a23fc6b7e)
     )
@@ -1768,9 +1768,9 @@
     (fp_line (start -0.635 -1.27) (end 1.27 -1.27) (layer "F.Fab") (width 0.1) (tstamp 482e3ac4-8e72-447c-987a-fbacc3521224))
     (fp_line (start 1.27 -1.27) (end 1.27 3.81) (layer "F.Fab") (width 0.1) (tstamp 7122f433-3af4-45fb-94ef-a5e93fa9ca23))
     (fp_line (start -1.27 3.81) (end -1.27 -0.635) (layer "F.Fab") (width 0.1) (tstamp ec4510b7-5b99-4db7-9947-3ad3685c735a))
-    (pad "1" thru_hole rect (at 0 0) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad "1" thru_hole rect (at 0 0 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 39 "I2C2_SCL") (pinfunction "Pin_1") (pintype "passive") (tstamp 9be9e7ad-37f1-4a13-b133-ce1629a4c66c))
-    (pad "2" thru_hole oval (at 0 2.54) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad "2" thru_hole oval (at 0 2.54 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 40 "I2C2_SDA") (pinfunction "Pin_2") (pintype "passive") (tstamp 197da263-1a1b-4586-ab12-c4c9ce570fad))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
       (offset (xyz 0 0 0))
@@ -2538,30 +2538,30 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp b669ab97-a3cb-4b6f-ac0b-26604901c34d)
-    (at 179.56 84.069)
+    (at 121.422 69.342 90)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/0411b6b5-9aa8-4b36-abb9-e2f3cc0913af")
     (attr through_hole)
-    (fp_text reference "J9" (at 1.016 5.593 90) (layer "F.SilkS")
+    (fp_text reference "J9" (at 1.016 5.593) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 757bff31-6522-46c9-83fe-703a142dddd9)
     )
-    (fp_text value "I2C3" (at -0.762 6.355 90) (layer "F.SilkS")
+    (fp_text value "I2C3" (at -0.762 6.355) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 9ba0892b-3331-4526-bb3a-57cc9a4e5b4a)
     )
-    (fp_text user "SCL" (at 3.556 0.005 unlocked) (layer "F.SilkS")
+    (fp_text user "SCL" (at -3.556 0 90 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 61a1b38a-33bf-4974-bbf5-558719b537de)
     )
-    (fp_text user "SDA" (at 3.556 2.545 unlocked) (layer "F.SilkS")
+    (fp_text user "SDA" (at -3.556 2.57 90 unlocked) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp ac37df20-5464-4401-ac61-732f164d95ee)
     )
-    (fp_text user "${REFERENCE}" (at 0 1.27 90) (layer "F.Fab")
+    (fp_text user "${REFERENCE}" (at 0 1.27) (layer "F.Fab")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp b4f7b133-9f8d-42fa-8b76-206bf7ab15b0)
     )
@@ -2580,9 +2580,9 @@
     (fp_line (start 1.27 -1.27) (end 1.27 3.81) (layer "F.Fab") (width 0.1) (tstamp 8bfb8e8f-24cd-4ac1-b932-0212cb688c22))
     (fp_line (start -0.635 -1.27) (end 1.27 -1.27) (layer "F.Fab") (width 0.1) (tstamp b7a96bc6-bd79-432d-b3f8-771745d103d7))
     (fp_line (start -1.27 3.81) (end -1.27 -0.635) (layer "F.Fab") (width 0.1) (tstamp e8c9226f-743e-4281-8f4a-5dffa628c243))
-    (pad "1" thru_hole rect (at 0 0) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad "1" thru_hole rect (at 0 0 90) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 41 "I2C3_SCL") (pinfunction "Pin_1") (pintype "passive") (tstamp 95b0fdbe-59ee-4135-a851-753181044b6c))
-    (pad "2" thru_hole oval (at 0 2.54) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
+    (pad "2" thru_hole oval (at 0 2.54 90) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 42 "I2C3_SDA") (pinfunction "Pin_2") (pintype "passive") (tstamp 344dc063-1ff2-4b78-881b-ac5f4a5939bf))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
       (offset (xyz 0 0 0))
@@ -2593,7 +2593,7 @@
 
   (footprint "Resistor_SMD:R_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp baff0532-7255-4cdc-a432-5ed9b0fb15e8)
-    (at 168.778 97.959)
+    (at 168.389 114.764)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -2668,18 +2668,18 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp bcb69bb6-872e-4283-906e-8d814d12e284)
-    (at 179.628 96.409)
+    (at 183.388 70.119)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/d9a706d4-808d-4889-a96e-68297ed509c5")
     (attr through_hole)
-    (fp_text reference "J13" (at 0.75 8.25 90) (layer "F.SilkS")
+    (fp_text reference "J13" (at 0.484 -4.349) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp e7a9ce29-5c19-4735-8ae5-dd99cff03b8f)
     )
-    (fp_text value "USART3" (at -1 9.75 90) (layer "F.SilkS")
+    (fp_text value "USART3" (at -1.016 -2.555) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp f5161fb9-4bde-4520-ab5a-daea35836912)
     )
@@ -2815,18 +2815,18 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp cd8dd8e9-b112-41c2-8203-d878d4ea4c1e)
-    (at 179.478 111.359)
+    (at 173.99 70.104)
     (descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x03 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/9bf6ec90-fb4d-4ef8-ab83-f53f91b222e0")
     (attr through_hole)
-    (fp_text reference "J11" (at 1 8.5 90) (layer "F.SilkS")
+    (fp_text reference "J11" (at 0.254 -4.318 180) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 0a66133c-0f1f-41eb-bab1-186d070548b9)
     )
-    (fp_text value "SPI1" (at -0.75 8.75 90) (layer "F.SilkS")
+    (fp_text value "SPI1" (at 0 -2.54 180) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 893574a6-3713-44d8-bbd8-979ddf5f45b5)
     )
@@ -2876,14 +2876,14 @@
 
   (footprint "Capacitor_SMD:C_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp cddad1e4-20c6-4c5a-9032-906caf2ebb9d)
-    (at 149.588 56.764)
+    (at 149.593 56.226)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
     (property "Sheetname" "")
     (path "/ec46108c-0fe2-4ffc-8ace-5b2a3978008a")
     (attr smd)
-    (fp_text reference "C18" (at 3.25 0) (layer "F.SilkS")
+    (fp_text reference "C18" (at 0.018 -3.17) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp b81e3db9-617c-4856-a71b-a49f26565f85)
     )
@@ -2918,7 +2918,7 @@
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp ce18915f-a71e-4430-a1a3-3dc61c479b29)
-    (at 129.053 73.592 90)
+    (at 121.407 56.134 90)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -2973,7 +2973,7 @@
 
   (footprint "Resistor_SMD:R_0603_1608Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp d42633ae-b49d-43ea-8208-ff7adb785589)
-    (at 168.828 96.109)
+    (at 168.439 112.914)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -3304,7 +3304,7 @@
 
   (footprint "Capacitor_SMD:C_0805_2012Metric" (layer "F.Cu")
     (tedit 5F68FEEE) (tstamp eaef9bfb-55be-421b-a97f-4bb3ee941f66)
-    (at 116.628 74.309 -90)
+    (at 165.608 96.586 -90)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
     (property "Sheetfile" "STM32L4_breakout.kicad_sch")
@@ -3499,42 +3499,41 @@
   (gr_arc (start 184.346 51.041) (mid 187.399287 52.305713) (end 188.664 55.359) (layer "Edge.Cuts") (width 0.1) (tstamp de3aef5a-b95d-4c99-b1fc-b7b29c54c3b1))
   (gr_line (start 103.828 137.909) (end 103.828 55.359) (layer "Edge.Cuts") (width 0.1) (tstamp f77e8c8d-1a2b-42c0-b81b-bde91f3bae0d))
 
-  (segment (start 149.728 60.324) (end 150.338 59.714) (width 0.3) (layer "F.Cu") (net 2) (tstamp 03a4a094-8252-4ecb-98b1-5a72f659f59a))
   (segment (start 155.638 74.114) (end 155.638 74.989) (width 0.3) (layer "F.Cu") (net 2) (tstamp 04b270dd-6496-450a-9f4d-3dd4187c54b7))
   (segment (start 149.238 74.939) (end 149.163 75.014) (width 0.3) (layer "F.Cu") (net 2) (tstamp 0b711103-7ad2-4889-a913-835e3329bdc8))
   (segment (start 158.653 63.634) (end 159.9 63.634) (width 0.25) (layer "F.Cu") (net 2) (tstamp 0c43234a-698c-4227-a351-62da3dc38869))
   (segment (start 159.9 63.634) (end 160.455 64.189) (width 0.25) (layer "F.Cu") (net 2) (tstamp 108c3df9-2bb2-46d1-9c1c-59d27ab48af3))
   (segment (start 163.138 64.189) (end 161.088 64.189) (width 0.5) (layer "F.Cu") (net 2) (tstamp 23bd2644-a4cc-4af8-b391-266806a97356))
-  (segment (start 150.338 59.714) (end 150.338 58.764) (width 0.3) (layer "F.Cu") (net 2) (tstamp 30a5ac2b-899f-4f4a-8982-17bbb1f18aa3))
-  (segment (start 149.728 61.209) (end 149.728 60.324) (width 0.3) (layer "F.Cu") (net 2) (tstamp 35ad4dc1-d9f7-4459-af02-855c0671f70f))
   (segment (start 149.728 73.509) (end 149.163 74.074) (width 0.3) (layer "F.Cu") (net 2) (tstamp 3b191218-2118-4495-9787-cc28b49b81a1))
   (segment (start 149.728 72.559) (end 149.728 73.509) (width 0.3) (layer "F.Cu") (net 2) (tstamp 53ace6a5-72d0-497c-a658-b2537bc7ecdc))
   (segment (start 156.228 72.559) (end 156.228 73.524) (width 0.3) (layer "F.Cu") (net 2) (tstamp 558fdf46-7c36-4b47-a252-83c1ba6c359a))
   (segment (start 149.163 74.074) (end 149.163 75.014) (width 0.3) (layer "F.Cu") (net 2) (tstamp 56f8b854-837d-487f-8b42-35163b4d2397))
+  (segment (start 150.343 58.445) (end 150.343 58.226) (width 0.25) (layer "F.Cu") (net 2) (tstamp 615d5b2a-71c3-4f10-865c-e89fe5ff99e9))
+  (segment (start 149.728 59.06) (end 150.343 58.445) (width 0.25) (layer "F.Cu") (net 2) (tstamp 631c2ed4-20fe-46e6-8439-c8ae36731a48))
   (segment (start 156.228 73.524) (end 155.638 74.114) (width 0.3) (layer "F.Cu") (net 2) (tstamp 7a924e55-049f-4d42-ac6b-6763763ff65d))
-  (segment (start 150.363 56.764) (end 150.363 58.739) (width 0.5) (layer "F.Cu") (net 2) (tstamp 9af6c6cf-1f9d-4130-80bb-99b34729bd0c))
+  (segment (start 150.368 56.226) (end 150.368 58.201) (width 0.5) (layer "F.Cu") (net 2) (tstamp 9af6c6cf-1f9d-4130-80bb-99b34729bd0c))
   (segment (start 161.063 64.214) (end 161.088 64.189) (width 0.3) (layer "F.Cu") (net 2) (tstamp a295ce74-c53c-4019-9e30-11f67a541312))
   (segment (start 160.455 64.189) (end 161.088 64.189) (width 0.25) (layer "F.Cu") (net 2) (tstamp a8f2b26f-727c-4a98-b726-0e55bd574505))
   (segment (start 146.013 68.289) (end 144.888 68.289) (width 0.3) (layer "F.Cu") (net 2) (tstamp ca58759c-b588-4f84-b398-4590c27b9176))
   (segment (start 146.358 68.634) (end 146.013 68.289) (width 0.3) (layer "F.Cu") (net 2) (tstamp e3b4ac52-3ad9-40fd-8b58-7d70ef4bbbbc))
+  (segment (start 149.728 61.209) (end 149.728 59.06) (width 0.25) (layer "F.Cu") (net 2) (tstamp e74d64e9-1684-429f-818e-5f71f0f3d99e))
   (segment (start 147.303 68.634) (end 146.358 68.634) (width 0.3) (layer "F.Cu") (net 2) (tstamp f4dcc238-16b1-4000-9db2-7c28b2795e58))
   (segment (start 155.638 74.989) (end 155.663 75.014) (width 0.3) (layer "F.Cu") (net 2) (tstamp f85f9041-cd48-4022-8df6-a32bdbfe293b))
-  (segment (start 150.363 58.739) (end 150.338 58.764) (width 0.5) (layer "F.Cu") (net 2) (tstamp f8764407-4404-4b18-8061-974b953f42fc))
-  (segment (start 149.228 61.209) (end 149.228 60.604) (width 0.3) (layer "F.Cu") (net 6) (tstamp 00722d30-1b5d-43ab-a5c6-c0f68eed4e1a))
   (segment (start 150.228 73.435041) (end 150.713 73.920041) (width 0.3) (layer "F.Cu") (net 6) (tstamp 060c4f71-fce8-43bc-94c7-82f6c2535484))
-  (segment (start 148.813 58.739) (end 148.788 58.764) (width 0.5) (layer "F.Cu") (net 6) (tstamp 16c90ba9-84c6-45b2-a797-e852adf04012))
   (segment (start 150.713 73.920041) (end 150.713 75.014) (width 0.3) (layer "F.Cu") (net 6) (tstamp 1ab9d9ca-4779-409f-907b-1799ef29f796))
   (segment (start 160.963 62.514) (end 161.088 62.639) (width 0.3) (layer "F.Cu") (net 6) (tstamp 2453d2e6-d3f5-4c8b-98ff-be896a23f090))
+  (segment (start 148.336 59.69) (end 148.336 58.683) (width 0.25) (layer "F.Cu") (net 6) (tstamp 302d761a-3cc0-4171-b58d-c0ec47315d6b))
   (segment (start 150.228 72.559) (end 150.228 73.435041) (width 0.3) (layer "F.Cu") (net 6) (tstamp 34785a16-9116-4ad3-8d20-a1a61dc0f55c))
-  (segment (start 148.788 60.164) (end 148.788 58.764) (width 0.3) (layer "F.Cu") (net 6) (tstamp 447c6176-560c-4f1a-9c67-e099cae46a8d))
-  (segment (start 148.813 56.764) (end 148.813 58.739) (width 0.5) (layer "F.Cu") (net 6) (tstamp 45d87446-41f7-4665-a48d-6042856b3b77))
+  (segment (start 148.336 58.683) (end 148.793 58.226) (width 0.25) (layer "F.Cu") (net 6) (tstamp 44a32a96-4af9-4b1b-a784-b82e57ae30f3))
+  (segment (start 148.818 56.226) (end 148.818 58.201) (width 0.5) (layer "F.Cu") (net 6) (tstamp 45d87446-41f7-4665-a48d-6042856b3b77))
   (segment (start 150.738 74.989) (end 150.713 75.014) (width 0.3) (layer "F.Cu") (net 6) (tstamp 4b3d6f82-2e94-48ad-a272-316408ad37d7))
   (segment (start 157.238 74.014) (end 157.238 74.989) (width 0.3) (layer "F.Cu") (net 6) (tstamp 50bf63e1-34b2-42e6-9e42-f9ec150c9da2))
   (segment (start 158.718 63.134) (end 159.338 62.514) (width 0.3) (layer "F.Cu") (net 6) (tstamp 7d623e7d-6513-4892-b815-727d21ad0f81))
   (segment (start 158.653 63.134) (end 158.718 63.134) (width 0.3) (layer "F.Cu") (net 6) (tstamp 9d4ca5fa-7b48-4632-b5f3-0f5dc28f0e8c))
   (segment (start 159.338 62.514) (end 160.963 62.514) (width 0.3) (layer "F.Cu") (net 6) (tstamp a058bdea-0aa2-4ce1-b57d-5f1ec4327c7b))
   (segment (start 156.728 73.504) (end 157.238 74.014) (width 0.3) (layer "F.Cu") (net 6) (tstamp a8fb4bd1-792a-432d-999d-676f1bd093dd))
-  (segment (start 149.228 60.604) (end 148.788 60.164) (width 0.3) (layer "F.Cu") (net 6) (tstamp c08bb70f-559c-4237-a704-5f3e371c0653))
+  (segment (start 149.228 61.209) (end 149.228 60.582) (width 0.25) (layer "F.Cu") (net 6) (tstamp b23f71cd-57da-4f2e-89d2-1be4497fff1e))
+  (segment (start 149.228 60.582) (end 148.336 59.69) (width 0.25) (layer "F.Cu") (net 6) (tstamp bca19131-5455-4f7b-9464-e3cda43307aa))
   (segment (start 156.728 72.559) (end 156.728 73.504) (width 0.3) (layer "F.Cu") (net 6) (tstamp dfb85ea4-2c9f-408f-846a-a1b63cb297ca))
   (segment (start 157.238 74.989) (end 157.213 75.014) (width 0.3) (layer "F.Cu") (net 6) (tstamp f9bd7d1f-74ad-481a-a728-ba5791842dd5))
   (segment (start 163.138 62.639) (end 161.088 62.639) (width 0.5) (layer "F.Cu") (net 6) (tstamp fa3e6ea6-c115-4e06-97d3-b3ba5fc0e7ca))
@@ -3556,6 +3555,14 @@
   (segment (start 142.788 65.284) (end 142.568 65.284) (width 0.3) (layer "F.Cu") (net 9) (tstamp cca308bd-088f-4d63-a063-67cd98dbb7e5))
   (segment (start 142.808 65.264) (end 142.788 65.284) (width 0.3) (layer "F.Cu") (net 9) (tstamp cdf4b2d2-2533-408b-9104-416f5eb21341))
   (segment (start 142.088 65.764) (end 140.788 65.764) (width 0.3) (layer "F.Cu") (net 9) (tstamp db4bbde2-ff18-48f5-979a-604fd79747c4))
+  (segment (start 152.908 62.992) (end 149.766 66.134) (width 0.25) (layer "F.Cu") (net 10) (tstamp 098a1d99-a61a-4c5b-ae39-d8bf4f95727d))
+  (segment (start 153.162 58.674) (end 152.908 58.928) (width 0.25) (layer "F.Cu") (net 10) (tstamp 320eb273-abd8-4c67-b90d-63631d081bc2))
+  (segment (start 158.496 53.34) (end 153.162 58.674) (width 0.25) (layer "F.Cu") (net 10) (tstamp d49a9a98-43e5-4b12-9b23-95d9873d155b))
+  (segment (start 149.766 66.134) (end 147.303 66.134) (width 0.25) (layer "F.Cu") (net 10) (tstamp e3813ad3-8065-44a8-8492-cb2ba8b11e56))
+  (segment (start 152.908 58.928) (end 152.908 59.436) (width 0.25) (layer "F.Cu") (net 10) (tstamp edef12af-947d-460c-84fb-4ab216e6c685))
+  (via (at 152.908 59.436) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 10) (tstamp 5e5a2cec-bf13-450f-9757-90c7ffe954a5))
+  (via (at 152.908 62.992) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 10) (tstamp 5fae1074-fab7-4cba-8153-7947a8b9e4b5))
+  (segment (start 152.908 59.436) (end 152.908 62.992) (width 0.25) (layer "B.Cu") (net 10) (tstamp ce23e972-1152-45e3-98a9-ee0b2ac51c1c))
   (segment (start 164.084 65.532) (end 166.116 63.5) (width 0.25) (layer "F.Cu") (net 11) (tstamp 3f18023e-3d22-4743-a92c-c87cda5945ed))
   (segment (start 158.653 64.134) (end 159.638 64.134) (width 0.25) (layer "F.Cu") (net 11) (tstamp 53ac44c4-e3ce-43d6-83e2-dc61406f92be))
   (segment (start 160.02 64.516) (end 160.02 65.024) (width 0.25) (layer "F.Cu") (net 11) (tstamp 6ec17903-00c8-438f-b590-2384cb01f4f8))
@@ -3595,6 +3602,19 @@
   (segment (start 140.208 78.486) (end 150.368 78.486) (width 0.25) (layer "F.Cu") (net 27) (tstamp 93bcb233-9155-4669-bce5-f87f9ea4cfa1))
   (segment (start 151.638 74.168) (end 151.228 73.758) (width 0.25) (layer "F.Cu") (net 27) (tstamp af9e0764-3ef0-409f-8935-f1df44ab2e84))
   (segment (start 151.638 77.216) (end 151.638 74.168) (width 0.25) (layer "F.Cu") (net 27) (tstamp b6ab26e5-8865-4377-ae72-339166764a33))
+  (segment (start 151.638 55.626) (end 151.13 55.118) (width 0.25) (layer "F.Cu") (net 29) (tstamp 0738a20c-9ec1-4b61-9b6a-dcbb0bb8fe58))
+  (segment (start 150.228 59.83) (end 151.638 58.42) (width 0.25) (layer "F.Cu") (net 29) (tstamp 3ea52f1c-e0a1-4f7d-a545-4123d14b5805))
+  (segment (start 143.002 56.134) (end 123.947 56.134) (width 0.25) (layer "F.Cu") (net 29) (tstamp 79946d5b-3ae6-4376-a897-d35728de4008))
+  (segment (start 150.228 61.209) (end 150.228 59.83) (width 0.25) (layer "F.Cu") (net 29) (tstamp 987ddd1e-40c9-44f8-b52d-18631fec0ded))
+  (segment (start 144.018 55.118) (end 143.002 56.134) (width 0.25) (layer "F.Cu") (net 29) (tstamp d9bb416b-efd7-4ba6-a59e-4a5d6cd899a6))
+  (segment (start 151.638 58.42) (end 151.638 55.626) (width 0.25) (layer "F.Cu") (net 29) (tstamp e2bb3672-e7ca-4f00-a5db-6921a24d2c62))
+  (segment (start 151.13 55.118) (end 144.018 55.118) (width 0.25) (layer "F.Cu") (net 29) (tstamp ec7424ce-4b22-4ee3-9834-32d09ef1ff8b))
+  (segment (start 152.146 58.674) (end 152.146 54.864) (width 0.25) (layer "F.Cu") (net 30) (tstamp 414dd1ae-0068-4c46-8ffb-a4c968c3f302))
+  (segment (start 151.384 54.102) (end 152.146 54.864) (width 0.25) (layer "F.Cu") (net 30) (tstamp 86047fa1-df9f-4485-85d6-f24722db73de))
+  (segment (start 121.407 56.134) (end 123.439 54.102) (width 0.25) (layer "F.Cu") (net 30) (tstamp 98cc5c99-73e3-4fde-9a67-79b1ea31187b))
+  (segment (start 150.728 61.209) (end 150.728 60.092) (width 0.25) (layer "F.Cu") (net 30) (tstamp bd783a12-59f8-49ea-b41f-067565b04a3f))
+  (segment (start 150.728 60.092) (end 152.146 58.674) (width 0.25) (layer "F.Cu") (net 30) (tstamp e667e858-cdf6-48a9-85f6-32898f9946d0))
+  (segment (start 123.439 54.102) (end 151.384 54.102) (width 0.25) (layer "F.Cu") (net 30) (tstamp f27b3480-b706-4916-8759-a84397098f51))
   (segment (start 146.358 64.134) (end 145.988 63.764) (width 0.3) (layer "F.Cu") (net 56) (tstamp 421cd6d8-f21a-491b-add5-f4a83861c6bb))
   (segment (start 147.303 64.134) (end 146.358 64.134) (width 0.3) (layer "F.Cu") (net 56) (tstamp 7d35a2c5-907a-466d-b30d-76f5cb5c8c64))
   (segment (start 145.988 63.764) (end 145.048 63.764) (width 0.3) (layer "F.Cu") (net 56) (tstamp adfe7893-16cf-4c7b-ac7a-db7638f16769))
@@ -10559,28 +10579,24 @@
   )
   (group "" (id 93040050-29ec-42f6-94e9-ca9f36692150)
     (members
-      00722d30-1b5d-43ab-a5c6-c0f68eed4e1a
-      03a4a094-8252-4ecb-98b1-5a72f659f59a
       04b270dd-6496-450a-9f4d-3dd4187c54b7
       0b711103-7ad2-4889-a913-835e3329bdc8
       14916705-98e6-47d1-9dbf-f01e968ba1f1
       16bb7b29-899a-4b78-9384-683c8a93337d
-      16c90ba9-84c6-45b2-a797-e852adf04012
       23bd2644-a4cc-4af8-b391-266806a97356
       2453d2e6-d3f5-4c8b-98ff-be896a23f090
       2a314f54-cde3-4e06-94cf-43f19d9cd347
       2cbdb457-9987-4ddc-93e8-d4dd9d286470
       2d5bffe8-9ded-4b64-bd38-1e92a2f27edb
-      30a5ac2b-899f-4f4a-8982-17bbb1f18aa3
+      302d761a-3cc0-4171-b58d-c0ec47315d6b
       30df35bf-2f83-4d2c-8cbe-2322b71f1c28
       33efcae4-ca2a-44ab-8ca3-55ec395dc4df
       358f182a-c195-4a5b-bcc7-3aa8736a757f
-      35ad4dc1-d9f7-4459-af02-855c0671f70f
       362bd4d1-dcc2-42d1-8787-ae41382711dd
       36df01c1-ece4-40ae-8e6a-0a500e90f958
       421cd6d8-f21a-491b-add5-f4a83861c6bb
       443bc130-296c-4099-9fba-6db238622401
-      447c6176-560c-4f1a-9c67-e099cae46a8d
+      44a32a96-4af9-4b1b-a784-b82e57ae30f3
       45532578-0867-46bc-9f66-b6c176bbff89
       45d87446-41f7-4665-a48d-6042856b3b77
       4b3d6f82-2e94-48ad-a272-316408ad37d7
@@ -10588,6 +10604,8 @@
       4fc9ce89-9aaa-4e86-86d7-8ce433c4d18f
       50bf63e1-34b2-42e6-9e42-f9ec150c9da2
       558fdf46-7c36-4b47-a252-83c1ba6c359a
+      615d5b2a-71c3-4f10-865c-e89fe5ff99e9
+      631c2ed4-20fe-46e6-8439-c8ae36731a48
       6488ecaa-04ec-456f-bfe8-9873cd4351a4
       6cb225cd-456d-4c69-a598-625188e4fcd5
       703ab394-dd05-41e3-8367-730ce4e6daf9
@@ -10608,10 +10626,11 @@
       adfe7893-16cf-4c7b-ac7a-db7638f16769
       b1010485-f583-4d4f-878c-f9b63751d23e
       b21eac7d-ec62-4892-b43d-8f88d5c45a76
+      b23f71cd-57da-4f2e-89d2-1be4497fff1e
       b43864c4-5376-4f6d-ab1b-7d09c77ffd2b
       b5ad25d0-1bc3-4e4c-bf96-d8b10c9e299a
       bc58fd73-4fc0-498b-b768-1bc7b639f88d
-      c08bb70f-559c-4237-a704-5f3e371c0653
+      bca19131-5455-4f7b-9464-e3cda43307aa
       c0c21f61-cb3b-4fa0-9b7f-36df5d5c2944
       c1033fdf-9b29-4295-81d9-0179459cf512
       ca58759c-b588-4f84-b398-4590c27b9176
@@ -10621,13 +10640,13 @@
       db4bbde2-ff18-48f5-979a-604fd79747c4
       dfb85ea4-2c9f-408f-846a-a1b63cb297ca
       e3b4ac52-3ad9-40fd-8b58-7d70ef4bbbbc
+      e74d64e9-1684-429f-818e-5f71f0f3d99e
       ed045a35-c2d8-4044-898c-78c674a37849
       ee650a4e-2fe5-482e-bca6-ee613635e185
       f19b1ff6-e489-494d-8452-33f3f88cb6a9
       f4dcc238-16b1-4000-9db2-7c28b2795e58
       f6c89530-cc24-4b2b-b9db-48980d0c8b8e
       f85f9041-cd48-4022-8df6-a32bdbfe293b
-      f8764407-4404-4b18-8061-974b953f42fc
       f9bd7d1f-74ad-481a-a728-ba5791842dd5
       fa3e6ea6-c115-4e06-97d3-b3ba5fc0e7ca
       fbfdb444-b790-4555-a84d-73812d61f388
@@ -10650,14 +10669,6 @@
       53ace6a5-72d0-497c-a658-b2537bc7ecdc
       56f8b854-837d-487f-8b42-35163b4d2397
       93040050-29ec-42f6-94e9-ca9f36692150
-    )
-  )
-  (group "" (id e5b7af72-90f3-4adb-9aac-71fc054728af)
-    (members
-      8e661ddc-aa22-471e-a0b2-5f2927548520
-      b669ab97-a3cb-4b6f-ac0b-26604901c34d
-      bcb69bb6-872e-4283-906e-8d814d12e284
-      cd8dd8e9-b112-41c2-8203-d878d4ea4c1e
     )
   )
   (group "" (id f73b0c67-c622-4c50-b2a7-cf286ded877b)
