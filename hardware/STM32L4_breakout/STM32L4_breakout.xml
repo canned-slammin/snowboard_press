@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\sdbur\zephyrproject\snowboard_press\hardware\STM32L4_breakout\STM32L4_breakout.kicad_sch</source>
-    <date>6/12/2025 12:41:40 PM</date>
+    <date>6/16/2025 12:50:11 PM</date>
     <tool>Eeschema (6.0.9)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -548,7 +548,7 @@
     </comp>
     <comp ref="SW1">
       <value>SW_SPDT</value>
-      <footprint>Button_Switch_SMD:SW_SPDT_PCM12</footprint>
+      <footprint>Button_Switch_SMD:SW_SPDT_CK-JS102011SAQN</footprint>
       <libsource lib="Switch" part="SW_SPDT" description="Switch, single pole double throw"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="STM32L4_breakout.kicad_sch"/>
