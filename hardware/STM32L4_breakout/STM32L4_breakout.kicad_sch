@@ -3113,6 +3113,10 @@
     (uuid fff9da4c-b573-4f00-b5c5-91a4cd83799b)
   )
 
+  (text "THIS WILL NEED TO BE RE-ROUTED TO PA4 :(" (at 131.445 117.475 0)
+    (effects (font (size 1 1) (thickness 0.254) bold) (justify left bottom))
+    (uuid 07f2d00a-d321-4044-928d-4cec837ae896)
+  )
   (text "Voltage Regulators" (at 17.78 18.415 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 12cf6d3c-c096-48f7-9073-ec8804388e86)
