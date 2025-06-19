@@ -26,4 +26,4 @@ config BT_HCI_VS
 
 endif # BT
 
-endif # BOARD_STM32L476_BREAKOU
+endif # BOARD_STM32L476_BREAKOUT
