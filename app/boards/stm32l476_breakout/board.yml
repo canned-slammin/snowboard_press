@@ -1,0 +1,6 @@
+board:
+  name: stm32l476_breakout
+  vendor: st
+  socs:
+    - name: stm32l476xx
+# idk if I should put st as the vendor

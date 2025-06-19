@@ -1,0 +1,32 @@
+identifier: stm32l476_breakout
+name: STM32L476RG Breakout Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - arduino_gpio
+  - arduino_i2c
+  - i2c
+  - hts221
+  - lps22hb
+  - lsm6dsl
+  - pwm
+  - counter
+  - gpio
+  - ble
+  - spi
+  - nvs
+  - vl53l0x
+  - watchdog
+  - adc
+  - dac
+  - qspi
+  - dma
+  - rtc
+ram: 128
+flash: 1024
+vendor: st
+# idk if I should put st as the vendor
