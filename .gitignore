@@ -53,3 +53,4 @@ dkms.conf
 /hardware/STM32L4_breakout/STM32L4_breakout-backups
 hardware/STM32L4_breakout/\#auto_saved_files\#
 hardware/STM32L4_breakout/fp-info-cache
+app/CMakeCache.txt
