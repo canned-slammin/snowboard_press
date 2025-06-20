@@ -163,7 +163,7 @@
 		"configurations": [
 			{
 				"name": "Launch",
-				"device": "disco_l475_iot1",
+				"device": "stm32l476_breakout",
 				"cwd": "${workspaceFolder:Project}",
 				"executable": "build/zephyr/zephyr.elf",
 				"request": "launch",
@@ -178,7 +178,7 @@
 			},
 			{
 				"name": "Attach",
-				"device": "disco_l475_iot1",
+				"device": "stm32l476_breakout",
 				"cwd": "${workspaceFolder:Project}",
 				"executable": "build/zephyr/zephyr.elf",
 				"request": "attach",
@@ -190,6 +190,38 @@
 				"rtos": "auto",
 				"deviceName": "STM32L476",
 			},
+			{
+				"name": "Launch JLink",
+				"cwd": "${workspaceFolder:Project}",
+				"executable": "build/zephyr/zephyr.elf",
+				"request": "launch",
+				"type": "cortex-debug",
+				"runToEntryPoint": "main",
+				"servertype": "jlink",
+				"serverpath": "C:/Program Files/SEGGER/JLink_V794e/JLinkGDBServerCL.exe",
+				"serverArgs": [],
+				"device": "STM32L476RG",
+				"interface": "swd",
+				"serialNumber": "", //If you have more than one J-Link probe, add the serial number here.
+				"svdFile": "${workspaceFolder}/svd/STM32L476.svd",
+				"armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin"
+			},
+			{
+				"name": "Attach JLink",
+				"cwd": "${workspaceFolder:Project}",
+				"executable": "build/zephyr/zephyr.elf",
+				"request": "attach",
+				"type": "cortex-debug",
+				"runToEntryPoint": "main",
+				"servertype": "jlink",
+				"serverpath": "C:/Program Files/SEGGER/JLink_V794e/JLinkGDBServerCL.exe",
+				"serverArgs": [],
+				"device": "STM32L476RG",
+				"interface": "swd",
+				"serialNumber": "", //If you have more than one J-Link probe, add the serial number here.
+				"svdFile": "${workspaceFolder}/svd/STM32L476.svd",
+				"armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin"
+			}
 		]
 	},
 	"extensions": {
