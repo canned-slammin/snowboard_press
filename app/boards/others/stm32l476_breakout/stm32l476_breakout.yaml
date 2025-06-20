@@ -28,5 +28,4 @@ supported:
   - rtc
 ram: 128
 flash: 1024
-vendor: st
-# idk if I should put st as the vendor
+vendor: others

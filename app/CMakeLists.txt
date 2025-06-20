@@ -2,6 +2,8 @@
 
 cmake_minimum_required(VERSION 3.20.0)
 
+# would be dope to define DBOARD_ROOT in here
+
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(snowboard_press)
 
