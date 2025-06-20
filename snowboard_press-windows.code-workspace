@@ -77,7 +77,7 @@
 					"-p",
 					"auto",
 					"-b",
-					"disco_l475_iot1"
+					"stm32l476_breakout"
 				],
 				"problemMatcher": [
 					"$gcc"
@@ -97,7 +97,7 @@
 					"-p",
 					"always",
 					"-b",
-					"disco_l475_iot1"
+					"stm32l476_breakout"
 				],
 				"problemMatcher": [
 					"$gcc"

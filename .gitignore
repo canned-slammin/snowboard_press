@@ -56,5 +56,6 @@ hardware/STM32L4_breakout/fp-info-cache
 app/CMakeCache.txt
 
 #zephyr stuff
-build/*
+app/build/*
+app/CMakeCache.txt
 app/CMakeCache.txt

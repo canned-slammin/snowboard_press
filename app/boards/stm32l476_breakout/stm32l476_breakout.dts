@@ -20,7 +20,6 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
-		zephyr,flash-controller = &mx25r6435f;
 		zephyr,bt-c2h-uart = &usart1; /* probably unnecessary */
 	};
 
@@ -72,7 +71,7 @@
 
 &usart3 {
 	current-speed = <115200>;
-	pinctrl-0 = <&usart1_tx_pc4 &usart1_rx_pc5>;
+	pinctrl-0 = <&usart3_tx_pc4 &usart3_rx_pc5>;
 	pinctrl-names = "default";
 	status = "okay";
 };
