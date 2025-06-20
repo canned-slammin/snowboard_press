@@ -54,3 +54,7 @@ dkms.conf
 hardware/STM32L4_breakout/\#auto_saved_files\#
 hardware/STM32L4_breakout/fp-info-cache
 app/CMakeCache.txt
+
+#zephyr stuff
+build/*
+app/CMakeCache.txt
