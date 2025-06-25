@@ -59,3 +59,4 @@ app/CMakeCache.txt
 app/build/*
 app/CMakeCache.txt
 app/CMakeCache.txt
+app/CMakeFiles/cmake.check_cache

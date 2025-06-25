@@ -1,0 +1,6 @@
+- more silkscreen labels. label EVERYTHING
+- Easier power connector
+- LEDs way too bright
+- power switch
+- reset button
+- boot LED
