@@ -23,6 +23,14 @@
 		zephyr,bt-c2h-uart = &usart1; /* probably unnecessary */
 	};
 
+	sdram2: memory@10000000 {
+		compatible = "zephyr,memory-region", "mmio-sram";
+		device_type = "memory";
+		reg = <0x10000000 DT_SIZE_K(32)>;
+		zephyr,memory-region = "SDRAM2";
+		status="okay";
+	};
+
 };
 
 &clk_lsi {

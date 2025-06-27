@@ -22,3 +22,9 @@ CONFIG_HW_STACK_PROTECTION=y
 
 # enable pin controller
 CONFIG_PINCTRL=y
+
+# Move the video buffer to fill the 32k SRAM2 block.
+# imported from synth project
+CONFIG_LV_Z_VBD_CUSTOM_SECTION=y
+CONFIG_LV_Z_VDB_SIZE=14
+
