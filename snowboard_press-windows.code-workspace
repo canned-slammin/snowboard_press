@@ -131,7 +131,10 @@
 				"type": "shell",
 				"command": "${userHome}/zephyrproject/.venv/Scripts/west",
 				"args": [
-					"flash"
+					"-v",
+					"flash",
+					"--runner",
+					"jlink"
 				],
 				"problemMatcher": [
 					"$gcc"
