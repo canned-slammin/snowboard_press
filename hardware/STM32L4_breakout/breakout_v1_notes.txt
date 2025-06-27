@@ -4,3 +4,4 @@
 - power switch
 - reset button
 - boot LED
+- screenprint for display package (overhangs screw terminals)
