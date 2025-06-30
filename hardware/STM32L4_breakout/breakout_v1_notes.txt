@@ -3,5 +3,7 @@
 - LEDs way too bright
 - power switch
 - reset button
-- boot LED
+- boot LED (will need a dedicated GPIO)
 - screenprint for display package (overhangs screw terminals)
+- add reverse polarity protection (phil's lab stm32 + buck tutorial)
+- cheaper processor?
