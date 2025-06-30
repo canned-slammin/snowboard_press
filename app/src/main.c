@@ -21,6 +21,17 @@ static uint32_t count;
 
 /* END lvgl example setup and globals*/
 
+/*BEGIN subsystem testing setup and globals*/
+const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
+static struct gpio_callback relay1_cb;
+static struct gpio_callback relay2_cb;
+static struct gpio_callback alert_cb;
+
+static uint8_t relay1_on = 0;
+static uint8_t relay2_on = 0;
+static uint8_t alert = 0;
+/*END subsystem testing setup and globals*/
+
 /*BEGIN lvgl example callbacks*/
 
 static void lv_btn_click_callback(lv_event_t *e)
@@ -31,6 +42,28 @@ static void lv_btn_click_callback(lv_event_t *e)
 }
 
 /*END lvgl example callbacks*/
+
+/*BEGIN subsystem testing callbacks*/
+
+static void lv_relay1_callback(lv_event_t *e)
+{
+	ARG_UNUSED(e);
+
+	relay1_on ^= 1;
+}
+
+static void lv_relay2_callback(lv_event_t *e)
+{
+	ARG_UNUSED(e);
+
+	relay2_on ^= 1;
+}
+
+void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
+{
+	alert ^= 1;
+}
+/*END subsystem testing callbacks*/
 
 int main(void) {
 
@@ -45,6 +78,13 @@ int main(void) {
 
     /*END lvgl example variable init*/
 
+	/*BEGIN subsystem testing variable init*/
+	char alert_str[4] = {0};
+	lv_obj_t *relay1_label;
+	lv_obj_t *relay2_label;
+	lv_obj_t *alert_label;
+	/*END subsystem testing variable init*/
+
     /*BEGIN lvgl example get display*/
 
     display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
@@ -55,9 +95,8 @@ int main(void) {
 
     /*END lvgl example get display*/
 
-    /*BEGIN lvgl example initialization*/
-
     /*create graphics objects*/
+	/*
 	if (IS_ENABLED(CONFIG_LV_Z_POINTER_KSCAN) || IS_ENABLED(CONFIG_LV_Z_POINTER_INPUT)) {
 		lv_obj_t *hello_world_button;
 
@@ -69,8 +108,16 @@ int main(void) {
 	} else {
 		hello_world_label = lv_label_create(lv_scr_act());
 	}
+	*/
+
+	lv_obj_t *relay1_button;
+	relay1_button = lv_btn_create(lv_scr_act());
+	lv_obj_align(relay1_button, LV_ALIGN_LEFT_MID, 5, 0);
+	lv_obj_add_event_cb(relay1_button, lv_relay1_callback, LV_EVENT_CLICKED, NULL);
+	relay1_label = lv_label_create(relay1_button);
 
     /*initialize graphics objects*/
+	/*
 	lv_label_set_text(hello_world_label, "NICE");
 	lv_obj_align(hello_world_label, LV_ALIGN_CENTER, 0, 0);
 
@@ -80,19 +127,21 @@ int main(void) {
 	beers = lv_label_create(lv_scr_act());
 	lv_obj_align(beers, LV_ALIGN_BOTTOM_MID, 0, -20);
 	lv_label_set_text(beers, beer_str);
+	*/
 
     /*start lvgl task handler and turn off display blanking*/
 	lv_task_handler();
 	display_blanking_off(display_dev);
 
-    /*END lvgl example initialization*/
 
     /*BEGIN lvgl example main loop*/
 
     while (1) {
 		
+		/*
 		sprintf(count_str, "%d", count);
 		lv_label_set_text(count_label, count_str);
+		*/
 
 		lv_task_handler();
 		
