@@ -91,10 +91,8 @@ int main(void) {
 
     while (1) {
 		
-		if ((count % 100) == 0U) {
-			sprintf(count_str, "%d", count/100U);
-			lv_label_set_text(count_label, count_str);
-		}
+		sprintf(count_str, "%d", count);
+		lv_label_set_text(count_label, count_str);
 
 		lv_task_handler();
 		
