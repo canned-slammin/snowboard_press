@@ -47,6 +47,14 @@ static void lv_btn_click_callback(lv_event_t *e)
 
 /*BEGIN subsystem testing callbacks*/
 
+static void error_handler(void)
+{
+
+	/*lol*/
+	while(1) {};
+
+}
+
 static void lv_relay1_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
@@ -133,6 +141,15 @@ int main(void) {
 
 	alert_label = lv_label_create(lv_scr_act());
 	lv_obj_align(alert_label, LV_ALIGN_CENTER, 0, -45);
+
+	/*set up gpio pins*/
+	if (!device_is_ready(dev_gpioa)) {
+		error_handler();
+	}
+
+	/*TODO configure relay1 pin as output, push pull, and set low*/
+	/*TODO configure relay2 pin as output, push pull, and set low*/
+	/*TODO configure alert as input, active high, pull down (i think, might wanna check datasheet of ADS)*/
 
     /*initialize graphics objects*/
 	/*
