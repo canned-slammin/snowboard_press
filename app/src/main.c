@@ -1,21 +1,4 @@
 #include "main.h"
-/*BEGIN lvgl example includes*/
-#include <zephyr/device.h>
-#include <zephyr/devicetree.h>
-#include <zephyr/drivers/display.h>
-#include <zephyr/drivers/gpio.h>
-#include <lvgl.h>
-#include <stdio.h>
-#include <string.h>
-#include <zephyr/kernel.h>
-#include <lvgl_input_device.h>
-/*END lvgl example includes*/
-
-
-#define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
-#include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(app);
-
 
 /*BEGIN subsystem testing setup and globals*/
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
