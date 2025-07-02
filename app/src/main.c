@@ -11,17 +11,11 @@
 #include <lvgl_input_device.h>
 /*END lvgl example includes*/
 
-/* BEGIN lvgl example setup and globals*/
 
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
 
-/*
-static uint32_t count;
-*/
-
-/* END lvgl example setup and globals*/
 
 /*BEGIN subsystem testing setup and globals*/
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
@@ -32,22 +26,13 @@ static struct gpio_callback alert_cb;
 static uint8_t relay1_on = 0;
 static uint8_t relay2_on = 0;
 static uint8_t alert = 0;
+
+/*TODO add message queue*/
+
 /*END subsystem testing setup and globals*/
 
-/*BEGIN lvgl example callbacks*/
-/*
-static void lv_btn_click_callback(lv_event_t *e)
-{
-	ARG_UNUSED(e);
 
-	++count;
-}
-*/
-/*END lvgl example callbacks*/
-
-/*BEGIN subsystem testing callbacks*/
-
-static void error_handler(void)
+static void error_handler()
 {
 
 	/*lol*/
@@ -59,6 +44,7 @@ static void lv_relay1_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
 
+	/*TODO add TOGGLE_RELAY1 to queu*/
 	relay1_on ^= 1;
 }
 
@@ -77,17 +63,7 @@ void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t
 
 int main(void) {
 
-    /*BEGIN lvgl example variable init*/
 
-	/*
-    char count_str[11] = {0};
-	char* beer_str = {"beers I'm going to drink tonight:"};
-	lv_obj_t *hello_world_label;
-	lv_obj_t *count_label;
-	lv_obj_t *beers;
-	*/
-
-    /*END lvgl example variable init*/
 
 	/*BEGIN subsystem testing variable init*/
 	const struct device *display_dev;
@@ -102,30 +78,12 @@ int main(void) {
 
 	/*END subsystem testing variable init*/
 
-    /*BEGIN lvgl example get display*/
-
     display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
 	if (!device_is_ready(display_dev)) {
 		LOG_ERR("Device not ready, aborting test");
 		return 0;
 	}
 
-    /*END lvgl example get display*/
-
-    /*create graphics objects*/
-	/*
-	if (IS_ENABLED(CONFIG_LV_Z_POINTER_KSCAN) || IS_ENABLED(CONFIG_LV_Z_POINTER_INPUT)) {
-		lv_obj_t *hello_world_button;
-
-		hello_world_button = lv_btn_create(lv_scr_act());
-		lv_obj_align(hello_world_button, LV_ALIGN_CENTER, 0, -15);
-		lv_obj_add_event_cb(hello_world_button, lv_btn_click_callback, LV_EVENT_CLICKED,
-				    NULL);
-		hello_world_label = lv_label_create(hello_world_button);
-	} else {
-		hello_world_label = lv_label_create(lv_scr_act());
-	}
-	*/
 
 	lv_obj_t *relay1_button;
 	relay1_button = lv_btn_create(lv_scr_act());
@@ -147,22 +105,10 @@ int main(void) {
 		error_handler();
 	}
 
-	/*TODO configure relay1 pin as output, push pull, and set low*/
-	/*TODO configure relay2 pin as output, push pull, and set low*/
+	/*TODO configure relay1 pin as output and set low*/
+	/*TODO configure relay2 pin as output and set low*/
 	/*TODO configure alert as input, active high, pull down (i think, might wanna check datasheet of ADS)*/
 
-    /*initialize graphics objects*/
-	/*
-	lv_label_set_text(hello_world_label, "NICE");
-	lv_obj_align(hello_world_label, LV_ALIGN_CENTER, 0, 0);
-
-	count_label = lv_label_create(lv_scr_act());
-	lv_obj_align(count_label, LV_ALIGN_BOTTOM_MID, 0, 0);
-
-	beers = lv_label_create(lv_scr_act());
-	lv_obj_align(beers, LV_ALIGN_BOTTOM_MID, 0, -20);
-	lv_label_set_text(beers, beer_str);
-	*/
 
 	lv_label_set_text(relay1_label, relay1_str);
 	lv_obj_align(relay1_label, LV_ALIGN_CENTER, 0, 0);
@@ -177,10 +123,14 @@ int main(void) {
 	display_blanking_off(display_dev);
 
 
-    /*BEGIN lvgl example main loop*/
-
     while (1) {
 		
+		/*TODO get message from queue*/
+
+		/*TODO handle TOGGLE_RELAY1 msg*/
+		/*TODO handle TOGGLE RELAY2 msg*/
+		/*TODO handle TOGGLE_ALERT msg*/
+
 		/*
 		sprintf(count_str, "%d", count);
 		lv_label_set_text(count_label, count_str);
@@ -190,8 +140,6 @@ int main(void) {
 		
 		k_sleep(K_MSEC(10));
 	}
-
-    /*END lvgl example main loop*/
 
     return 0;
 }
