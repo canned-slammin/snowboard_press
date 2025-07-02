@@ -10,7 +10,8 @@ static uint8_t relay1_on = 0;
 static uint8_t relay2_on = 0;
 static uint8_t alert = 0;
 
-/*TODO add message queue*/
+struct k_msgq eventq;
+K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
 /*END subsystem testing setup and globals*/
 
@@ -27,19 +28,20 @@ static void lv_relay1_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
 
-	/*TODO add TOGGLE_RELAY1 to queu*/
+	/*TODO add TOGGLE_RELAY1 to queue*/
 	relay1_on ^= 1;
 }
 
 static void lv_relay2_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
-
+	/*TODO add TOGGLE_RELAY2 to queue*/
 	relay2_on ^= 1;
 }
 
 void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
+	/*TODO add TOGGLE_ALERT to queue*/
 	alert ^= 1;
 }
 /*END subsystem testing callbacks*/

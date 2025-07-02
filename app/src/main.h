@@ -14,6 +14,10 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
 
-/*TODO relay 1 pin*/
-/*TODO relay 2 pin*/
-/*TODO alert pin*/
+#define ALERT_PIN  (8)
+#define RELAY1_PIN (9)
+#define RELAY2_PIN (10)
+
+#define TOGGLE_ALERT  ((1) << (0))
+#define TOGGLE_RELAY1 ((1) << (1))
+#define TOGGLE_RELAY2 ((1) << (2))
