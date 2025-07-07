@@ -28,27 +28,29 @@ static void lv_relay1_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
 
-	/*TODO add TOGGLE_RELAY1 to queue*/
-	relay1_on ^= 1;
+	/*add TOGGLE_RELAY1 to queue*/
+	uint32_t msg = TOGGLE_RELAY1;
+	k_msgq_put(&eventq, &msg, K_NO_WAIT);
+
 }
 
 static void lv_relay2_callback(lv_event_t *e)
 {
 	ARG_UNUSED(e);
-	/*TODO add TOGGLE_RELAY2 to queue*/
-	relay2_on ^= 1;
+	/*add TOGGLE_RELAY2 to queue*/
+	uint32_t msg = TOGGLE_RELAY2;
+	k_msgq_put(&eventq, &msg, K_NO_WAIT);
 }
 
 void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
-	/*TODO add TOGGLE_ALERT to queue*/
-	alert ^= 1;
+	/*add TOGGLE_ALERT to queue*/
+	uint32_t msg = TOGGLE_ALERT;
+	k_msgq_put(&eventq, &msg, K_NO_WAIT);
 }
 /*END subsystem testing callbacks*/
 
 int main(void) {
-
-
 
 	/*BEGIN subsystem testing variable init*/
 	const struct device *display_dev;
@@ -60,6 +62,8 @@ int main(void) {
 	lv_obj_t *alert_label;
 	lv_obj_t *relay1_label;
 	lv_obj_t *relay2_label;
+
+	int32_t ret = 0;
 
 	/*END subsystem testing variable init*/
 
@@ -90,9 +94,19 @@ int main(void) {
 		error_handler();
 	}
 
-	/*TODO configure relay1 pin as output and set low*/
-	/*TODO configure relay2 pin as output and set low*/
-	/*TODO configure alert as input, active high, pull down (i think, might wanna check datasheet of ADS)*/
+	/* configure relay1 pin as output and set low*/
+	ret = gpio_pin_configure(dev_gpioa, RELAY1_PIN, GPIO_OUTPUT_LOW);
+	if (ret != 0) {
+		error_handler();
+	}
+
+	/*configure relay2 pin as output and set low*/
+	ret = gpio_pin_configure(dev_gpioa, RELAY2_PIN, GPIO_OUTPUT_LOW);
+	if (ret != 0) {
+		error_handler();
+	}
+
+	/*configure alert as input, active high (NOTE: Needs hardware pull up)*/
 
 
 	lv_label_set_text(relay1_label, relay1_str);

@@ -7,3 +7,4 @@
 - screenprint for display package (overhangs screw terminals)
 - add reverse polarity protection (phil's lab stm32 + buck tutorial)
 - cheaper processor?
+- ADS ALERT/RDY line needs pull-up

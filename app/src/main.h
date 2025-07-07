@@ -14,9 +14,9 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(app);
 
-#define ALERT_PIN  (8)
-#define RELAY1_PIN (9)
-#define RELAY2_PIN (10)
+#define ALERT_PIN  ((gpio_pin_t) 8u)
+#define RELAY1_PIN ((gpio_pin_t) 9u)
+#define RELAY2_PIN ((gpio_pin_t) 10u)
 
 #define TOGGLE_ALERT  ((1) << (0))
 #define TOGGLE_RELAY1 ((1) << (1))
