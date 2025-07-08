@@ -18,6 +18,6 @@ LOG_MODULE_REGISTER(app);
 #define RELAY1_PIN ((gpio_pin_t) 9u)
 #define RELAY2_PIN ((gpio_pin_t) 10u)
 
-#define TOGGLE_ALERT  ((1) << (0))
+#define ALERT         ((1) << (0))
 #define TOGGLE_RELAY1 ((1) << (1))
 #define TOGGLE_RELAY2 ((1) << (2))

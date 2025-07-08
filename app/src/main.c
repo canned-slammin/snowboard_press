@@ -2,27 +2,14 @@
 
 /*BEGIN subsystem testing setup and globals*/
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
-static struct gpio_callback relay1_cb;
-static struct gpio_callback relay2_cb;
 static struct gpio_callback alert_cb;
-
-static uint8_t relay1_on = 0;
-static uint8_t relay2_on = 0;
-static uint8_t alert = 0;
 
 struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
 /*END subsystem testing setup and globals*/
 
-
-static void error_handler()
-{
-
-	/*lol*/
-	while(1) {};
-
-}
+/*Subsystem testing functions*/
 
 static void lv_relay1_callback(lv_event_t *e)
 {
@@ -44,8 +31,8 @@ static void lv_relay2_callback(lv_event_t *e)
 
 void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
-	/*add TOGGLE_ALERT to queue*/
-	uint32_t msg = TOGGLE_ALERT;
+	/*add ALERT to queue*/
+	uint32_t msg = ALERT;
 	k_msgq_put(&eventq, &msg, K_NO_WAIT);
 }
 /*END subsystem testing callbacks*/
@@ -55,7 +42,7 @@ int main(void) {
 	/*BEGIN subsystem testing variable init*/
 	const struct device *display_dev;
 
-	char* alert_str = {"OFF"};
+	char* alert_str = {"0"};
 	char* relay1_str = {"Toggle Relay 1"};
 	char* relay2_str = {"Toggle Relay 2"};
 
@@ -64,6 +51,8 @@ int main(void) {
 	lv_obj_t *relay2_label;
 
 	int32_t ret = 0;
+
+	uint32_t alert_count = 0;
 
 	/*END subsystem testing variable init*/
 
@@ -91,23 +80,32 @@ int main(void) {
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
-		error_handler();
+		printk("GPIOA not ready");
 	}
 
 	/* configure relay1 pin as output and set low*/
 	ret = gpio_pin_configure(dev_gpioa, RELAY1_PIN, GPIO_OUTPUT_LOW);
 	if (ret != 0) {
-		error_handler();
+		printk("Relay 1 pin failed to configure");
 	}
 
 	/*configure relay2 pin as output and set low*/
 	ret = gpio_pin_configure(dev_gpioa, RELAY2_PIN, GPIO_OUTPUT_LOW);
 	if (ret != 0) {
-		error_handler();
+		printk("Relay 2 pin failed to configure");
 	}
 
 	/*configure alert as input, active high (NOTE: Needs hardware pull up)*/
+	ret = gpio_pin_interrupt_configure(dev_gpioa, ALERT_PIN, GPIO_INT_EDGE_TO_ACTIVE);
+	if (ret != 0) {
+		printk("Alert pin failed to configure");
+	}
 
+	/*register alert callback*/
+	gpio_init_callback(&alert_cb, alert_callback, BIT(ALERT_PIN));
+	gpio_add_callback(dev_gpioa, &alert_cb);
+
+	/*TODO not sure if required - initial ready to clear alert flag*/
 
 	lv_label_set_text(relay1_label, relay1_str);
 	lv_obj_align(relay1_label, LV_ALIGN_CENTER, 0, 0);
@@ -124,16 +122,34 @@ int main(void) {
 
     while (1) {
 		
-		/*TODO get message from queue*/
+		uint32_t msg = 0;
 
-		/*TODO handle TOGGLE_RELAY1 msg*/
-		/*TODO handle TOGGLE RELAY2 msg*/
-		/*TODO handle TOGGLE_ALERT msg*/
+		/*get message from queue*/
+		ret = k_msgq_get(&eventq, &msg, K_NO_WAIT);
+		if (ret != 0) {
+			printk("Error getting message from event queue");
+		}
 
-		/*
-		sprintf(count_str, "%d", count);
-		lv_label_set_text(count_label, count_str);
-		*/
+		/*handle ALERT msg*/
+		if (msg & ALERT) {
+			sprintf(alert_str, "%d", alert_count);
+			lv_label_set_text(alert_label, alert_str);
+		}
+		/*handle TOGGLE RELAY1 msg*/
+		if (msg & RELAY1_PIN) {
+			ret = gpio_pin_toggle(dev_gpioa, RELAY1_PIN);
+			if (ret != 0) {
+				printk("Error toggling relay 1");
+			}
+		} 
+		
+		/*handle TOGGLE RELAY2 msg*/
+		if (msg & RELAY2_PIN) {
+			ret = gpio_pin_toggle(dev_gpioa, RELAY2_PIN);
+			if (ret != 0) {
+				printk("Error toggling relay 2");
+			}
+		} 
 
 		lv_task_handler();
 		
