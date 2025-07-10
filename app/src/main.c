@@ -7,9 +7,22 @@ static struct gpio_callback alert_cb;
 struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
+char alert_str[11] = {0};
+
+lv_obj_t *alert_label;
+lv_obj_t *relay1_label;
+lv_obj_t *relay2_label;
+
 /*END subsystem testing setup and globals*/
 
 /*Subsystem testing functions*/
+
+void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
+{
+	/*add ALERT to queue*/
+	uint32_t msg = ALERT;
+	k_msgq_put(&eventq, &msg, K_NO_WAIT);
+}
 
 static void lv_relay1_callback(lv_event_t *e)
 {
@@ -29,39 +42,10 @@ static void lv_relay2_callback(lv_event_t *e)
 	k_msgq_put(&eventq, &msg, K_NO_WAIT);
 }
 
-void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
-{
-	/*add ALERT to queue*/
-	uint32_t msg = ALERT;
-	k_msgq_put(&eventq, &msg, K_NO_WAIT);
-}
-/*END subsystem testing callbacks*/
-
-int main(void) {
-
-	/*BEGIN subsystem testing variable init*/
-	const struct device *display_dev;
-
-	char alert_str[11] = {0};
+void setup_gui(void) {
+	
 	char* relay1_str = {"Toggle Relay 1"};
 	char* relay2_str = {"Toggle Relay 2"};
-
-	lv_obj_t *alert_label;
-	lv_obj_t *relay1_label;
-	lv_obj_t *relay2_label;
-
-	int32_t ret = 0;
-
-	uint32_t alert_count = 0;
-
-	/*END subsystem testing variable init*/
-
-    display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
-	if (!device_is_ready(display_dev)) {
-		LOG_ERR("Device not ready, aborting test");
-		return 0;
-	}
-
 
 	lv_obj_t *relay1_button;
 	relay1_button = lv_btn_create(lv_scr_act());
@@ -77,6 +61,34 @@ int main(void) {
 
 	alert_label = lv_label_create(lv_scr_act());
 	lv_obj_align(alert_label, LV_ALIGN_CENTER, 0, -45);
+
+	lv_label_set_text(relay1_label, relay1_str);
+	lv_obj_align(relay1_label, LV_ALIGN_CENTER, 0, 0);
+
+	lv_label_set_text(relay2_label, relay2_str);
+	lv_obj_align(relay2_label, LV_ALIGN_CENTER, 0, 0);
+
+	lv_label_set_text(alert_label, alert_str);
+}
+
+int main(void) {
+
+	/*BEGIN subsystem testing variable init*/
+	const struct device *display_dev;
+
+	int32_t ret = 0;
+
+	uint32_t alert_count = 0;
+
+	/*END subsystem testing variable init*/
+
+    display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
+	if (!device_is_ready(display_dev)) {
+		LOG_ERR("Device not ready, aborting test");
+		return 0;
+	}
+
+	setup_gui();
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
@@ -111,14 +123,6 @@ int main(void) {
 	gpio_add_callback(dev_gpioa, &alert_cb);
 
 	/*TODO not sure if required - initial ready to clear alert flag*/
-
-	lv_label_set_text(relay1_label, relay1_str);
-	lv_obj_align(relay1_label, LV_ALIGN_CENTER, 0, 0);
-
-	lv_label_set_text(relay2_label, relay2_str);
-	lv_obj_align(relay2_label, LV_ALIGN_CENTER, 0, 0);
-
-	lv_label_set_text(alert_label, alert_str);
 
     /*start lvgl task handler and turn off display blanking*/
 	lv_task_handler();
