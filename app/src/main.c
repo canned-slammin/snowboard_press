@@ -126,8 +126,8 @@ int main(void) {
 
 		/*get message from queue*/
 		ret = k_msgq_get(&eventq, &msg, K_NO_WAIT);
-		if (ret != 0) {
-			printk("Error getting message from event queue");
+		if (ret == 0) {
+			printk("msg: %x\r\n", msg);
 		}
 
 		/*TODO this doesn't work*/
@@ -137,16 +137,15 @@ int main(void) {
 			lv_label_set_text(alert_label, alert_str);
 		}
 		/*handle TOGGLE RELAY1 msg*/
-		if (msg & RELAY1_PIN) {
+		if (msg & TOGGLE_RELAY1) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY1_PIN);
 			if (ret != 0) {
 				printk("Error toggling relay 1");
 			}
 		} 
 		
-		/*TODO this doesn't work*/
 		/*handle TOGGLE RELAY2 msg*/
-		if (msg & RELAY2_PIN) {
+		if (msg & TOGGLE_RELAY2) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY2_PIN);
 			if (ret != 0) {
 				printk("Error toggling relay 2");
