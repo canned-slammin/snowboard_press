@@ -130,6 +130,7 @@ int main(void) {
 			printk("Error getting message from event queue");
 		}
 
+		/*TODO this doesn't work*/
 		/*handle ALERT msg*/
 		if (msg & ALERT) {
 			sprintf(alert_str, "%d", alert_count);
@@ -143,6 +144,7 @@ int main(void) {
 			}
 		} 
 		
+		/*TODO this doesn't work*/
 		/*handle TOGGLE RELAY2 msg*/
 		if (msg & RELAY2_PIN) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY2_PIN);
