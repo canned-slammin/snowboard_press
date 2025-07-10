@@ -42,7 +42,7 @@ int main(void) {
 	/*BEGIN subsystem testing variable init*/
 	const struct device *display_dev;
 
-	char* alert_str = {"0"};
+	char* alert_str = {"000"};
 	char* relay1_str = {"Toggle Relay 1"};
 	char* relay2_str = {"Toggle Relay 2"};
 
@@ -96,9 +96,14 @@ int main(void) {
 	}
 
 	/*configure alert as input, active high (NOTE: Needs hardware pull up)*/
+	ret = gpio_pin_configure(dev_gpioa, ALERT_PIN, GPIO_INPUT);
+	if (ret != 0) {
+		printk("ERROR: failed to configure alert pin as input");
+	}
+
 	ret = gpio_pin_interrupt_configure(dev_gpioa, ALERT_PIN, GPIO_INT_EDGE_TO_ACTIVE);
 	if (ret != 0) {
-		printk("Alert pin failed to configure");
+		printk("Alert pin interrupt failed to configure");
 	}
 
 	/*register alert callback*/
@@ -133,14 +138,16 @@ int main(void) {
 		/*TODO this doesn't work*/
 		/*handle ALERT msg*/
 		if (msg & ALERT) {
+			printk("ALERT message received");
 			sprintf(alert_str, "%d", alert_count);
+			printk("Printing count...");
 			lv_label_set_text(alert_label, alert_str);
 		}
 		/*handle TOGGLE RELAY1 msg*/
 		if (msg & TOGGLE_RELAY1) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY1_PIN);
 			if (ret != 0) {
-				printk("Error toggling relay 1");
+				printk("Error toggling relay 1\r\n");
 			}
 		} 
 		
@@ -148,7 +155,7 @@ int main(void) {
 		if (msg & TOGGLE_RELAY2) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY2_PIN);
 			if (ret != 0) {
-				printk("Error toggling relay 2");
+				printk("Error toggling relay 2\r\n");
 			}
 		} 
 
