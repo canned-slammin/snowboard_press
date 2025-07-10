@@ -42,7 +42,7 @@ int main(void) {
 	/*BEGIN subsystem testing variable init*/
 	const struct device *display_dev;
 
-	char* alert_str = {"000"};
+	char alert_str[11] = {0};
 	char* relay1_str = {"Toggle Relay 1"};
 	char* relay2_str = {"Toggle Relay 2"};
 
@@ -135,11 +135,10 @@ int main(void) {
 			printk("msg: %x\r\n", msg);
 		}
 
-		/*TODO this doesn't work*/
 		/*handle ALERT msg*/
 		if (msg & ALERT) {
 			printk("ALERT message received");
-			sprintf(alert_str, "%d", alert_count);
+			sprintf(alert_str, "%d", ++alert_count);
 			printk("Printing count...");
 			lv_label_set_text(alert_label, alert_str);
 		}
