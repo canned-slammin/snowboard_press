@@ -5,6 +5,7 @@
 - reset button
 - boot LED (will need a dedicated GPIO)
 - screenprint for display package (overhangs screw terminals)
-- add reverse polarity protection (phil's lab stm32 + buck tutorial)
+- add reverse polarity protection (phil's lab stm32 + buck tutorial) (isolate in case of the need to bypass)
 - cheaper processor?
 - ADS ALERT/RDY line needs pull-up
+- RT_CS and D7 DON'T actually need to be re-routed
