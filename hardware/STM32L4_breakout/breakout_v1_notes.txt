@@ -10,3 +10,4 @@
 - ADS ALERT/RDY line needs pull-up
 - RT_CS and D7 DON'T actually need to be re-routed
 - UART4 is wired backwards on arduino connector
+- hardware book recommends top signal / power / ground / bottom signal

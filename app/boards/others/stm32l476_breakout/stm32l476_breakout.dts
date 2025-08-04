@@ -33,6 +33,17 @@
 
 };
 
+/*NOTE: This should be changed to a modbus serial nomenclature and de-gpios removed */
+&arduino_serial {
+	status = "okay";
+
+	modbus0 {
+		compatible = "zephyr,modbus-serial";
+		status = "okay";
+		de-gpios = <&arduino_header 15 GPIO_ACTIVE_LOW>;	/* D9 */
+	};
+};
+
 &clk_lsi {
 	status = "okay";
 };

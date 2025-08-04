@@ -4,11 +4,13 @@
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/kernel.h>
+#include <zephyr/modbus/modbus.h>
+#include <zephyr/sys/util.h>
 #include <lvgl.h>
+#include <lvgl_input_device.h>
 #include <stdio.h>
 #include <string.h>
-#include <zephyr/kernel.h>
-#include <lvgl_input_device.h>
 
 #define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
 #include <zephyr/logging/log.h>
