@@ -10,6 +10,7 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(snowboard_press)
 
 target_sources(app PRIVATE src/main.c)
+target_sources(app PRIVATE src/console_cmds.c)
 
 # Add custom linker section to relocate framebuffers to SRAM2
 zephyr_linker_sources_ifdef(CONFIG_LV_Z_VBD_CUSTOM_SECTION
