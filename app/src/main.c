@@ -80,6 +80,10 @@ int main(void) {
 
 	/*END subsystem testing variable init*/
 
+	if (init_modbus_client()) {
+		LOG_ERR("Modbus RTU client init failed");
+	}
+
     display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
 	if (!device_is_ready(display_dev)) {
 		LOG_ERR("Device not ready, aborting test");
