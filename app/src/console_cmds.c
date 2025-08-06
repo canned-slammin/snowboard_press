@@ -1,3 +1,5 @@
+/* 8/6/2025 */
+
 #include <zephyr/kernel.h>
 #include <zephyr/shell/shell.h>
 #include <zephyr/modbus/modbus.h>
@@ -10,33 +12,33 @@
 
 /*TODO modbus write holding regs with error reporting*/
 
-static int modbus_write_reg(const struct shell *sh, size_t argc, char **argv)
+static int modbus_reg_write(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print("Write Registers not yet implemented");
+    shell_print(sh, "Write Registers not yet implemented");
     return -1;
 }
 
 /*TODO modbus read holding regs with error reporting*/
 
-static int modbus_read_reg(const struct shell *sh, size_t argc, char **argv)
+static int modbus_reg_read(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print("Read Registers not yet implemented");
+    shell_print(sh, "Read Registers not yet implemented");
     return -1;
 }
 
 /*TODO modbus write coils with error reporting*/
 
-static int modbus_write_coil(const struct shell *sh, size_t argc, char **argv)
+static int modbus_coil_write(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print("Write Coils not yet implemented");
+    shell_print(sh, "Write Coils not yet implemented");
     return -1;
 }
 
 /*TODO modbus read coils with error reporting*/
 
-static int modbus_read_coil(const struct shell *sh, size_t argc, char **argv)
+static int modbus_coil_read(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print("Read Coils not yet implemented");
+    shell_print(sh, "Read Coils not yet implemented");
     return -1;
 }
 
@@ -58,19 +60,20 @@ SHELL_STATIC_SUBCMD_SET_CREATE(sub_modbus,
                                SHELL_CMD_ARG(write_reg,
                                              NULL,
                                              "Write holding registers",
-                                            modbus_write_reg, 3, 3),
+                                            modbus_reg_write, 3, 3),
                                SHELL_CMD_ARG(read_reg,
                                              NULL,
                                              "Read holding registers",
-                                            modbus_read_reg, 3, 3),
+                                            modbus_reg_read, 3, 3),
                                SHELL_CMD_ARG(write_coil,
                                              NULL,
                                              "Write coil state",
-                                            modbus_write_coil, 3, 3),
+                                            modbus_coil_write, 3, 3),
                                SHELL_CMD_ARG(read_coil,
                                              NULL,
                                              "Read coil state",
-                                            modbus_read_coil, 2, 2),)
+                                            modbus_coil_read, 2, 2),
+                               SHELL_SUBCMD_SET_END);
 
 /*TODO create root (level 0) command "modbus"
 
