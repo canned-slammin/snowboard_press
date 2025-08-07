@@ -6,15 +6,16 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/modbus/modbus.h>
+#include <zephyr/shell/shell.h>
 #include <zephyr/sys/util.h>
 #include <lvgl.h>
 #include <lvgl_input_device.h>
 #include <stdio.h>
 #include <string.h>
 
-#define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
-#include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(app);
+/*Modbus client interface*/
+extern int client_iface;
+
 
 #define ALERT_PIN  ((gpio_pin_t) 8u)
 #define RELAY1_PIN ((gpio_pin_t) 9u)

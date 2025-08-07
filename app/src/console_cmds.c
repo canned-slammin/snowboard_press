@@ -1,20 +1,16 @@
 /* 8/6/2025 */
-
-#include <zephyr/kernel.h>
-#include <zephyr/shell/shell.h>
-#include <zephyr/modbus/modbus.h>
+#include "main.h"
 
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-
-/*TODO how to get the client interface shared from main?*/
 
 /*TODO modbus write holding regs with error reporting*/
 
 static int modbus_reg_write(const struct shell *sh, size_t argc, char **argv)
 {
     shell_print(sh, "Write Registers not yet implemented");
+	shell_print(sh, "client interface = %d", client_iface);
     return -1;
 }
 

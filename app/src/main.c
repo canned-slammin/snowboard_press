@@ -1,4 +1,10 @@
+
+
 #include "main.h"
+
+#define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(app);
 
 /*BEGIN subsystem testing setup and globals*/
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
@@ -8,7 +14,7 @@ struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
 /*NOTE: client interface settings are from Zephy ModBus RTU client sample*/
-static int client_iface;
+int client_iface;
 
 const static struct modbus_iface_param client_param = {
 	.mode = MODBUS_MODE_RTU,
@@ -31,6 +37,8 @@ static int init_modbus_client(void)
 	const char iface_name[] = {DEVICE_DT_NAME(MODBUS_NODE)};
 
 	client_iface = modbus_iface_get_by_name(iface_name);
+	LOG_ERR("Modbust client interface initialized");
+	LOG_ERR("main client interface = %d", client_iface);
 
 	return modbus_init_client(client_iface, client_param);
 }
