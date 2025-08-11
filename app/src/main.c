@@ -2,11 +2,10 @@
 
 #include "main.h"
 
-#define LOG_LEVEL CONFIG_LOG_DEFAULT_LEVEL
-#include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(app);
-
 /*BEGIN subsystem testing setup and globals*/
+
+LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
+
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
 static struct gpio_callback alert_cb;
 
@@ -37,8 +36,8 @@ static int init_modbus_client(void)
 	const char iface_name[] = {DEVICE_DT_NAME(MODBUS_NODE)};
 
 	client_iface = modbus_iface_get_by_name(iface_name);
-	LOG_ERR("Modbust client interface initialized");
-	LOG_ERR("main client interface = %d", client_iface);
+	LOG_INF("Modbust client interface initialized");
+	LOG_INF("main client interface = %d", client_iface);
 
 	return modbus_init_client(client_iface, client_param);
 }
@@ -116,30 +115,30 @@ int main(void) {
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
-		printk("GPIOA not ready");
+		LOG_ERR("GPIOA not ready");
 	}
 
 	/* configure relay1 pin as output and set low*/
 	ret = gpio_pin_configure(dev_gpioa, RELAY1_PIN, GPIO_OUTPUT_LOW);
 	if (ret != 0) {
-		printk("Relay 1 pin failed to configure");
+		LOG_ERR("Relay 1 pin failed to configure");
 	}
 
 	/*configure relay2 pin as output and set low*/
 	ret = gpio_pin_configure(dev_gpioa, RELAY2_PIN, GPIO_OUTPUT_LOW);
 	if (ret != 0) {
-		printk("Relay 2 pin failed to configure");
+		LOG_ERR("Relay 2 pin failed to configure");
 	}
 
 	/*configure alert as input, active high (NOTE: Needs hardware pull up)*/
 	ret = gpio_pin_configure(dev_gpioa, ALERT_PIN, GPIO_INPUT);
 	if (ret != 0) {
-		printk("ERROR: failed to configure alert pin as input");
+		LOG_ERR("ERROR: failed to configure alert pin as input");
 	}
 
 	ret = gpio_pin_interrupt_configure(dev_gpioa, ALERT_PIN, GPIO_INT_EDGE_TO_ACTIVE);
 	if (ret != 0) {
-		printk("Alert pin interrupt failed to configure");
+		LOG_ERR("Alert pin interrupt failed to configure");
 	}
 
 	/*register alert callback*/
@@ -168,21 +167,21 @@ int main(void) {
 		/*get message from queue*/
 		ret = k_msgq_get(&eventq, &msg, K_NO_WAIT);
 		if (ret == 0) {
-			printk("msg: %x\r\n", msg);
+			LOG_INF("msg: %x\r\n", msg);
 		}
 
 		/*handle ALERT msg*/
 		if (msg & ALERT) {
-			printk("ALERT message received");
+			LOG_INF("ALERT message received");
 			sprintf(alert_str, "%d", ++alert_count);
-			printk("Printing count...");
+			LOG_INF("Printing count...");
 			lv_label_set_text(alert_label, alert_str);
 		}
 		/*handle TOGGLE RELAY1 msg*/
 		if (msg & TOGGLE_RELAY1) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY1_PIN);
 			if (ret != 0) {
-				printk("Error toggling relay 1\r\n");
+				LOG_ERR("Error toggling relay 1\r\n");
 			}
 		} 
 		
@@ -190,7 +189,7 @@ int main(void) {
 		if (msg & TOGGLE_RELAY2) {
 			ret = gpio_pin_toggle(dev_gpioa, RELAY2_PIN);
 			if (ret != 0) {
-				printk("Error toggling relay 2\r\n");
+				LOG_ERR("Error toggling relay 2\r\n");
 			}
 		} 
 

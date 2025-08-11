@@ -5,6 +5,7 @@
 #include <zephyr/drivers/display.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/kernel.h>
+#include <zephyr/logging/log.h>
 #include <zephyr/modbus/modbus.h>
 #include <zephyr/shell/shell.h>
 #include <zephyr/sys/util.h>
