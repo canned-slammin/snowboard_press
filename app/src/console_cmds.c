@@ -9,9 +9,24 @@
 
 static int modbus_reg_write(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print(sh, "Write Registers not yet implemented");
-	shell_print(sh, "client interface = %d", client_iface);
-    return -1;
+    
+    int err = 0;
+    const uint8_t unit_id = atoi(argv[1]);
+    const uint16_t start_addr = atoi(argv[2]);
+    const uint16_t reg_val = atoi(argv[3]);
+
+    err = modbus_write_holding_reg(client_iface, unit_id, start_addr, reg_val);
+
+    if (err != 0) {
+        shell_print(sh, "ERROR: FC06 failed to write value %d to holding register %d on unit %d", reg_val, start_addr, unit_id);
+        shell_print(sh, "Error code: %d", err);
+    }
+    else {
+        shell_print(sh, "FC06 Wrote %d to register %d on unit %d", reg_val, start_addr, unit_id);
+    }
+
+    return err;
+
 }
 
 /*TODO modbus read holding regs with error reporting*/
@@ -55,7 +70,7 @@ shell static subcommand create:
 SHELL_STATIC_SUBCMD_SET_CREATE(sub_modbus,
                                SHELL_CMD_ARG(write_reg,
                                              NULL,
-                                             "Write holding registers",
+                                             "<unit_id> <start_addr> <reg_buf> <num_regs> - Write holding registers",
                                             modbus_reg_write, 3, 3),
                                SHELL_CMD_ARG(read_reg,
                                              NULL,
