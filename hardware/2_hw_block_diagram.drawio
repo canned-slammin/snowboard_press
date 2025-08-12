@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
   <diagram name="Page-1" id="Wx2j0ibqgNny6YTB7Ouq">
-    <mxGraphModel dx="1010" dy="363" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1834" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -461,10 +461,10 @@
         <mxCell id="5FDmYxgXOHyy_Ekkeulm-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" parent="1" source="5FDmYxgXOHyy_Ekkeulm-143" target="5FDmYxgXOHyy_Ekkeulm-148" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5FDmYxgXOHyy_Ekkeulm-150" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;UART2_RX&lt;/span&gt;" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=left;html=1;verticalAlign=middle;shape=mxgraph.electrical.abstract.dac;labelPosition=center;" parent="1" vertex="1">
+        <mxCell id="5FDmYxgXOHyy_Ekkeulm-150" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;USART3_RX&lt;/span&gt;" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=left;html=1;verticalAlign=middle;shape=mxgraph.electrical.abstract.dac;labelPosition=center;" parent="1" vertex="1">
           <mxGeometry x="629" y="730.1100000000001" width="80" height="19.89" as="geometry" />
         </mxCell>
-        <mxCell id="5FDmYxgXOHyy_Ekkeulm-151" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;UART2_TX&lt;/span&gt;" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=left;html=1;verticalAlign=middle;shape=mxgraph.electrical.abstract.dac;labelPosition=center;" parent="1" vertex="1">
+        <mxCell id="5FDmYxgXOHyy_Ekkeulm-151" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;USART3_TX&lt;/span&gt;" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=left;html=1;verticalAlign=middle;shape=mxgraph.electrical.abstract.dac;labelPosition=center;" parent="1" vertex="1">
           <mxGeometry x="629" y="750.2200000000001" width="80" height="19.89" as="geometry" />
         </mxCell>
         <mxCell id="5FDmYxgXOHyy_Ekkeulm-154" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;USART3_TX&lt;/span&gt;" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=right;html=1;verticalAlign=middle;shape=mxgraph.electrical.abstract.dac;labelPosition=center;flipH=1;" parent="1" vertex="1">

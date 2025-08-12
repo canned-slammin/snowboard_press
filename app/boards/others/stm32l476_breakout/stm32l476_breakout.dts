@@ -33,16 +33,6 @@
 
 };
 
-/*NOTE: This should be changed to a modbus serial nomenclature */
-&arduino_serial {
-	status = "okay";
-
-	modbus0 {
-		compatible = "zephyr,modbus-serial";
-		status = "okay";
-	};
-};
-
 &clk_lsi {
 	status = "okay";
 };
@@ -92,6 +82,12 @@
 	pinctrl-0 = <&usart3_tx_pc4 &usart3_rx_pc5>;
 	pinctrl-names = "default";
 	status = "okay";
+
+	modbus0 {
+		compatible = "zephyr,modbus-serial";
+		status = "okay";
+	};
+
 };
 
 &uart4 {
