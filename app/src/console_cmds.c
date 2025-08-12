@@ -9,7 +9,7 @@
 
 static int modbus_reg_write(const struct shell *sh, size_t argc, char **argv)
 {
-    
+
     int err = 0;
     const uint8_t unit_id = atoi(argv[1]);
     const uint16_t start_addr = atoi(argv[2]);
@@ -33,8 +33,26 @@ static int modbus_reg_write(const struct shell *sh, size_t argc, char **argv)
 
 static int modbus_reg_read(const struct shell *sh, size_t argc, char **argv)
 {
-    shell_print(sh, "Read Registers not yet implemented");
-    return -1;
+    
+    int err = 0;
+    const uint8_t unit_id = atoi(argv[1]);
+    const uint16_t start_addr = atoi(argv[2]);
+    uint16_t reg_val = 0;
+
+    err = modbus_read_holding_regs(client_iface, unit_id, start_addr, &reg_val, 1);
+
+    if (err != 0) {
+        shell_print(sh, "ERROR: FC03 failed to read register at address %d from unit %d", start_addr, unit_id);
+        shell_print(sh, "Error code: %d", err);
+    }
+    else {
+        shell_print(sh, "Unit ID = %d", unit_id);
+        shell_print(sh, "Address = %d", start_addr);
+        shell_print(sh, "Reg val = %d", reg_val);
+    }
+
+    return err;
+
 }
 
 /*TODO modbus write coils with error reporting*/
@@ -70,12 +88,12 @@ shell static subcommand create:
 SHELL_STATIC_SUBCMD_SET_CREATE(sub_modbus,
                                SHELL_CMD_ARG(write_reg,
                                              NULL,
-                                             "<unit_id> <start_addr> <reg_buf> <num_regs> - Write holding registers",
+                                             "<unit_id> <start_addr> <reg_val> - Write holding register",
                                             modbus_reg_write, 3, 3),
                                SHELL_CMD_ARG(read_reg,
                                              NULL,
-                                             "Read holding registers",
-                                            modbus_reg_read, 3, 3),
+                                             "<unit_id> <start_addr> - Read holding register",
+                                            modbus_reg_read, 2, 2),
                                SHELL_CMD_ARG(write_coil,
                                              NULL,
                                              "Write coil state",
