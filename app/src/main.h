@@ -25,3 +25,5 @@ extern int client_iface;
 #define ALERT         ((1) << (0))
 #define TOGGLE_RELAY1 ((1) << (1))
 #define TOGGLE_RELAY2 ((1) << (2))
+
+MODBUS_EXC
