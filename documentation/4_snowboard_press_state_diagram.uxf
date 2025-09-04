@@ -207,13 +207,13 @@ valign=top
 entry/          start timer(graphicsPeriod)
                 for button in menus_buttons: lv_obj_clear_flag(button, HIDDEN)
                 
-                pSetpointMutex = unlocked
-                tBlanketSetpointMutex = unlocked
-                bBlanketSetpointMutex = unlocked
+                presSetpointMutex = unlocked
+                topTempSetpointMutex = unlocked
+                btmTempSetpointMutex = unlocked
                 
-                pSetpoint = defaultPressureSetpoint
-                tBlanketSetpoint = defaultTemperatureSetpoint
-                bBlanketSetpoint = defaultTemperatureSetpoint
+                presSetpoint = defaultPressureSetpoint
+                topTempSetpoint = defaultTemperatureSetpoint
+                btmTempSetpoint = defaultTemperatureSetpoint
 
 WAIT_GX_TIMER / stop timer
                 lv_task_handler()
@@ -231,13 +231,19 @@ valign=top
     <id>UMLState</id>
     <coordinates>
       <x>45</x>
-      <y>2805</y>
+      <y>2535</y>
       <w>1005</w>
       <h>240</h>
     </coordinates>
     <panel_attributes>PressureHandler
 --
 
+entry/  localPresSetpoint = threadsafe_get_pressure_setpoint()
+
+exit/
+
+
+NEW_P_SETPOINT /   localPressure = threadsafe_get_pressure_setpoint() 
                             
                             
 valign=top
@@ -349,23 +355,7 @@ entry/ for button in set_profile_buttons:          lv_obj_clear_flag(button, HID
 
 exit/  for button in set_profile_buttons:          lv_obj_add_flag(button, HIDDEN)
        for indicator in set_profile_indicators:    lv_obj_add_flag(indicator, HIDDEN)
-
-       
-
-TOP_DWELL_TEMP_UP /        
-TOP_DWELL_TEMP_DOWN /      
-BTM_DWELL_TEMP_UP /        
-BTM_DWELL_TEMP_DOWN /      
-TOP_COOL_TEMP_UP /         
-TOP_COOL_TEMP_DOWN /       
-BTM_COOL_TEMP_UP /         
-BTM_COOL_TEMP_DOWN /       
-P_SETPOINT_UP /
-P_SETPOINT_DOWN / 
-H_TIME_UP / 
-H_TIME_DOWN / 
-D_TIME_UP / 
-D_TIME_DOWN /           
+          
 valign=top
 </panel_attributes>
     <additional_attributes/>
@@ -447,67 +437,39 @@ valign=top
 --
 entry/   for button in manual_buttons:          lv_obj_clear_flag(button, HIDDEN)
          for indicator in manual_indicators:    lv_obj_clear_flag(indicator, HIDDEN)
+         
+         localPresSetpoint = threadsafe_get_pressure_setpoint()
+         localTopTempSetpoint = threadsafe_get_temp_setpoint(top)
+         localBtmTempSetpoint = threadsafe_get_temp_setpoint(btm)
 
 exit/    for button in manual_buttons:          lv_obj_add_flag(button, HIDDEN)
          for indicator in manual_indicators:    lv_obj_add_flag(indicator, HIDDEN)
 
 
-WAIT_IND_TIMER /     update pressure reading indicator
-                     update temperature reading indicators
+WAIT_IND_TIMER /     lv_label_set_text(pressure_indicator, threadsafe_get_pressure())
+                     lv_label_set_text(top_temp_indicator, threadsafe_get_temp(top))
+                     lv_label_set_text(btm_temp_indicator, threadsafe_get_temp(btm))
                    
-P_SETPOINT_UP /      Lock(pSetpoint)
-                     pSetpoint++
-                     Unlock(pSetpoint)
-                     update pressure setpoint indicator
-                     Send(NEW_P_SETPOINT, PressureHandler, obj-&gt;pSetpoint)
+P_SETPOINT_UP /      threadsafe_set_pressure_setpoint(++localPresSetpoint)
+                     lv_label_set_text(pressure_setpoint_indicator, threadsafe_get_pressure_setpoint())
+                     Send(NEW_P_SETPOINT, PressureHandler)
                    
-P_SETPOINT_DOWN /    Lock(pSetpoint)
-                     pSetpoint--
-                     Unlock(pSetpoint)
-                     update pressure setpoint indicator
-                     Send(NEW_P_SETPOINT, PressureHandler, obj-&gt;pSetpoint)
+P_SETPOINT_DOWN /    threadsafe_set_pressure_setpoint(--localPresSetpoint)
+                     lv_label_set_text(pressure_setpoint_indicator, threadsafe_get_pressure_setpoint())
+                     Send(NEW_P_SETPOINT, PressureHandler)
 
-T_T_SETPOINT_UP /    Lock(tBlanketSetpoint)
-                     tBlanketSetpoint++
-                     Unlock(tBlanketSetpoint)
-                     update top temperature setpoint indicator
-                     set_temp_setpoint(topBlanketSetpoint, topBlanketObject, tBlanketSetpoint++)
+T_T_SETPOINT_UP /    threadsafe_set_temp_setpoint(top, ++localTopTempSetpoint)
+                     lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(top))
 
-T_T_SETPOINT_DOWN /  Lock(tBlanketSetpoint)
-                     tBlanketSetpoint--
-                     Unlock(tBlanketSetpoint)
-                     update top temperature setpoint indicator
-                     Send(NEW_T_SETPOINT, TemperatureHandler, obj-&gt;t_t_setpoint)
+T_T_SETPOINT_DOWN /  threadsafe_set_temp_setpoint(btm, --localTopTempSetpoint)
+                     lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(top))
 
-T_B_SETPOINT_UP /    Lock(bBlanketSetpoint)
-                     bBlanketSetpoint++
-                     Unlock(bBlanketSetpoint)
-                     update bottom temperature setpoint indicator
-                     Send(NEW_T_SETPOINT, TemperatureHandler, obj-&gt;t_b_setpoint)
+T_B_SETPOINT_UP /    threadsafe_set_temp_setpoint(btm, ++localBtmTempSetpoint)
+                     lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(btm))
 
-T_B_SETPOINT_DOWN /  Lock(bBlanketSetpoint)
-                     bBlanketSetpoint--
-                     Unlock(bBlanketSetpoint)
-                     update bottom temperature setpoint indicator
-                     Send(NEW_T_SETPOINT, TemperatureHandler, obj-&gt;t_b_setpoint)
+T_B_SETPOINT_DOWN /  threadsafe_set_temp_setpoint(btm, --localBtmTempSetpoint)
+                     lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(btm))
                     
-valign=top
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>45</x>
-      <y>2535</y>
-      <w>1005</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>RunProfile
---
-
-                            
-                            
 valign=top
 </panel_attributes>
     <additional_attributes/>
