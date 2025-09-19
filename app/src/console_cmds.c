@@ -23,7 +23,7 @@ static int modbus_reg_read_fp(const struct shell *sh, size_t argc, char **argv) 
         shell_print(sh, "Unit ID = %d", unit_id);
         shell_print(sh, "Address = %d", start_addr);
         shell_print(sh, "Reg val = %f", reg_val);
-        shell_print(sh, "Reg val in mem = %x, reg_val");
+        shell_print(sh, "Reg val in mem = %x", reg_val);
     }
 
     return err;
