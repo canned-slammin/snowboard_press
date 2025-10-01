@@ -28,13 +28,60 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>36</x>
+      <x>504</x>
       <y>60</y>
       <w>1032</w>
-      <h>2916</h>
+      <h>4260</h>
     </coordinates>
     <panel_attributes>Started
 --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -247,10 +294,10 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>60</x>
+      <x>528</x>
       <y>180</y>
       <w>984</w>
-      <h>2448</h>
+      <h>2748</h>
     </coordinates>
     <panel_attributes>Menus
 --
@@ -283,8 +330,8 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>156</x>
-      <y>2664</y>
+      <x>648</x>
+      <y>3684</y>
       <w>804</w>
       <h>300</h>
     </coordinates>
@@ -320,7 +367,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>468</x>
+      <x>936</x>
       <y>0</y>
       <w>24</w>
       <h>24</h>
@@ -331,7 +378,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
+      <x>936</x>
       <y>0</y>
       <w>108</w>
       <h>84</h>
@@ -342,7 +389,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>948</x>
       <y>408</y>
       <w>96</w>
       <h>72</h>
@@ -353,7 +400,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>480</x>
+      <x>948</x>
       <y>408</y>
       <w>24</w>
       <h>24</h>
@@ -364,7 +411,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>708</x>
+      <x>1176</x>
       <y>1056</y>
       <w>36</w>
       <h>108</h>
@@ -375,7 +422,7 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>720</x>
+      <x>1188</x>
       <y>1092</y>
       <w>96</w>
       <h>36</h>
@@ -387,7 +434,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>828</x>
       <y>1056</y>
       <w>36</w>
       <h>108</h>
@@ -398,7 +445,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>372</x>
+      <x>840</x>
       <y>1296</y>
       <w>96</w>
       <h>36</h>
@@ -410,10 +457,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>84</x>
+      <x>552</x>
       <y>1344</y>
       <w>936</w>
-      <h>1272</h>
+      <h>1560</h>
     </coordinates>
     <panel_attributes>RunProfileMenu
 --
@@ -423,7 +470,17 @@ entry/ for button in set_profile_buttons:          lv_obj_clear_flag(button, HID
 exit/  for button in set_profile_buttons:          lv_obj_add_flag(button, HIDDEN)
        for indicator in set_profile_indicators:    lv_obj_add_flag(indicator, HIDDEN)
 
-
+# alt version with profile handler:
+# polls for state of profile handler and updates label (feasible?)
+# start button triggers handler going from Idle to Build Pressure
+# poll pressure level until pressure is reached
+# PRESSURE_REACHED sent to handler to trigger Hold Pressure (but how to only trigger this once?)
+# PRESSURE_REACHED starts hold timer
+# HOLD_TIMER sent to profile handler
+# HOLD_TIMER starts temperature polling
+# HEAT_REACHED sent to profile handler
+# HEAT_REACHED ends temperature polling
+# HEAT_REACHED starts dwell timer
           
 valign=top
 </panel_attributes>
@@ -432,7 +489,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>828</x>
       <y>1248</y>
       <w>36</w>
       <h>120</h>
@@ -443,7 +500,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>708</x>
+      <x>1176</x>
       <y>1248</y>
       <w>36</w>
       <h>120</h>
@@ -454,7 +511,7 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>720</x>
+      <x>1188</x>
       <y>1296</y>
       <w>96</w>
       <h>36</h>
@@ -466,7 +523,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>372</x>
+      <x>840</x>
       <y>1092</y>
       <w>96</w>
       <h>36</h>
@@ -478,7 +535,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>168</x>
+      <x>636</x>
       <y>1140</y>
       <w>780</w>
       <h>120</h>
@@ -497,7 +554,7 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>168</x>
+      <x>636</x>
       <y>456</y>
       <w>780</w>
       <h>612</h>
@@ -529,15 +586,19 @@ P_SETPOINT_DOWN /    threadsafe_set_pressure_setpoint(--localPresSetpoint)
 
 T_T_SETPOINT_UP /    threadsafe_set_temp_setpoint(top, ++localTopTempSetpoint)
                      lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(top))
+                     Send(NEW_T_T_SETPOINT, TemperatureHandler)
 
 T_T_SETPOINT_DOWN /  threadsafe_set_temp_setpoint(btm, --localTopTempSetpoint)
                      lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(top))
+                     Send(NEW_T_T_SETPOINT, TemperatureHandler)
 
 T_B_SETPOINT_UP /    threadsafe_set_temp_setpoint(btm, ++localBtmTempSetpoint)
                      lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(btm))
+                     Send(NEW_T_B_SETPOINT, TemperatureHandler)
 
 T_B_SETPOINT_DOWN /  threadsafe_set_temp_setpoint(btm, --localBtmTempSetpoint)
                      lv_label_set_text(top_temp_setpoint_indicator, threadsafe_get_temp_setpoint(btm))
+                     Send(NEW_T_B_SETPOINT, TemperatureHandler)
                     
 valign=top
 </panel_attributes>
@@ -546,7 +607,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
+      <x>936</x>
       <y>120</y>
       <w>108</w>
       <h>84</h>
@@ -557,7 +618,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>468</x>
+      <x>936</x>
       <y>120</y>
       <w>24</w>
       <h>24</h>
@@ -568,14 +629,16 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>1692</y>
+      <x>696</x>
+      <y>1932</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>BuildPressure
 --
 
+# timer polling for top pressure
+# send PRESSURE_REACHED to self?
 
 valign=top
 </panel_attributes>
@@ -584,8 +647,8 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>1644</y>
+      <x>996</x>
+      <y>1884</y>
       <w>96</w>
       <h>36</h>
     </coordinates>
@@ -596,8 +659,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>1860</y>
+      <x>696</x>
+      <y>2100</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
@@ -612,8 +675,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>1764</y>
+      <x>984</x>
+      <y>2004</y>
       <w>36</w>
       <h>120</h>
     </coordinates>
@@ -623,8 +686,8 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>1800</y>
+      <x>996</x>
+      <y>2040</y>
       <w>144</w>
       <h>36</h>
     </coordinates>
@@ -635,8 +698,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>1968</y>
+      <x>996</x>
+      <y>2208</y>
       <w>96</w>
       <h>24</h>
     </coordinates>
@@ -647,8 +710,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>2016</y>
+      <x>696</x>
+      <y>2256</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
@@ -663,8 +726,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>1932</y>
+      <x>984</x>
+      <y>2172</y>
       <w>36</w>
       <h>108</h>
     </coordinates>
@@ -674,8 +737,8 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>2172</y>
+      <x>696</x>
+      <y>2412</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
@@ -690,8 +753,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>2088</y>
+      <x>984</x>
+      <y>2328</y>
       <w>36</w>
       <h>108</h>
     </coordinates>
@@ -701,8 +764,8 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>2124</y>
+      <x>996</x>
+      <y>2364</y>
       <w>132</w>
       <h>36</h>
     </coordinates>
@@ -713,8 +776,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>2328</y>
+      <x>696</x>
+      <y>2568</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
@@ -729,8 +792,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>2244</y>
+      <x>984</x>
+      <y>2484</y>
       <w>36</w>
       <h>108</h>
     </coordinates>
@@ -740,8 +803,8 @@ valign=top
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>2280</y>
+      <x>996</x>
+      <y>2520</y>
       <w>132</w>
       <h>36</h>
     </coordinates>
@@ -750,26 +813,10 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>228</x>
-      <y>1524</y>
-      <w>648</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>RunProfilePoll
---
-
-
-valign=top
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>1596</y>
+      <x>984</x>
+      <y>1836</y>
       <w>36</w>
       <h>120</h>
     </coordinates>
@@ -779,8 +826,8 @@ valign=top
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>228</x>
-      <y>2484</y>
+      <x>696</x>
+      <y>2724</y>
       <w>648</w>
       <h>84</h>
     </coordinates>
@@ -795,19 +842,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>1560</y>
-      <w>120</w>
-      <h>996</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0;10.0;810.0;80.0;810.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>132</x>
-      <y>1728</y>
+      <x>600</x>
+      <y>2136</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
@@ -817,8 +853,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>1896</y>
+      <x>600</x>
+      <y>2292</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
@@ -828,8 +864,8 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>2052</y>
+      <x>600</x>
+      <y>2448</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
@@ -839,41 +875,19 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>2208</y>
+      <x>600</x>
+      <y>2604</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>132</x>
-      <y>2364</y>
-      <w>120</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>864</x>
-      <y>1560</y>
-      <w>156</w>
-      <h>996</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;810.0;110.0;810.0;110.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
-      <y>1548</y>
+      <x>636</x>
+      <y>1956</y>
       <w>60</w>
       <h>36</h>
     </coordinates>
@@ -884,8 +898,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
-      <y>1716</y>
+      <x>636</x>
+      <y>2280</y>
       <w>60</w>
       <h>36</h>
     </coordinates>
@@ -896,8 +910,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
-      <y>2040</y>
+      <x>636</x>
+      <y>2124</y>
       <w>60</w>
       <h>36</h>
     </coordinates>
@@ -908,8 +922,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
-      <y>1884</y>
+      <x>636</x>
+      <y>2436</y>
       <w>60</w>
       <h>36</h>
     </coordinates>
@@ -920,20 +934,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>168</x>
-      <y>2196</y>
-      <w>60</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>ABORT
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>168</x>
-      <y>2352</y>
+      <x>636</x>
+      <y>2592</y>
       <w>60</w>
       <h>48</h>
     </coordinates>
@@ -944,8 +946,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>876</x>
-      <y>2532</y>
+      <x>1344</x>
+      <y>2772</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
@@ -956,19 +958,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>2364</y>
-      <w>156</w>
+      <x>1332</x>
+      <y>2604</y>
+      <w>144</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>516</x>
-      <y>2400</y>
+      <x>984</x>
+      <y>2640</y>
       <w>36</w>
       <h>108</h>
     </coordinates>
@@ -978,8 +980,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>528</x>
-      <y>2436</y>
+      <x>996</x>
+      <y>2676</y>
       <w>144</w>
       <h>36</h>
     </coordinates>
@@ -990,13 +992,79 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>876</x>
-      <y>2352</y>
+      <x>1344</x>
+      <y>2592</y>
       <w>132</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>PROC_COMPLETE
 style=wordwrap</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>648</x>
+      <y>3996</y>
+      <w>804</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>TemperatureHandler
+--
+
+# this is just going to be a UART communication handler in first iteration
+# but this leaves room to bring the temp control closer to the board
+
+entry/  
+
+exit/
+
+
+
+                             
+
+                            
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1332</x>
+      <y>1800</y>
+      <w>144</w>
+      <h>996</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;810.0;100.0;810.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>696</x>
+      <y>1764</y>
+      <w>648</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>RunProfilePoll
+--
+
+# wait for start button
+
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>1968</y>
+      <w>120</w>
+      <h>828</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0;10.0;670.0;80.0;670.0</additional_attributes>
   </element>
 </diagram>
