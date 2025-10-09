@@ -12,35 +12,9 @@ static struct gpio_callback alert_cb;
 struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
-/*NOTE: client interface settings are from Zephy ModBus RTU client sample*/
-int client_iface;
-
-const static struct modbus_iface_param client_param = {
-	.mode = MODBUS_MODE_RTU,
-	.rx_timeout = 50000,
-	.serial = {
-		.baud = 19200,
-		.parity = UART_CFG_PARITY_NONE,
-		.stop_bits_client = UART_CFG_STOP_BITS_2,
-	},
-};
-
-#define MODBUS_NODE DT_COMPAT_GET_ANY_STATUS_OKAY(zephyr_modbus_serial)
-
 /*END subsystem testing setup and globals*/
 
 /*BEGIN Subsystem testing functions*/
-
-static int init_modbus_client(void)
-{
-	const char iface_name[] = {DEVICE_DT_NAME(MODBUS_NODE)};
-
-	client_iface = modbus_iface_get_by_name(iface_name);
-	LOG_INF("Modbust client interface initialized");
-	LOG_INF("main client interface = %d", client_iface);
-
-	return modbus_init_client(client_iface, client_param);
-}
 
 static void lv_relay1_callback(lv_event_t *e)
 {
@@ -86,10 +60,6 @@ int main(void) {
 	uint32_t alert_count = 0;
 
 	/*END subsystem testing variable init*/
-
-	if (init_modbus_client()) {
-		LOG_ERR("Modbus RTU client init failed");
-	}
 
     display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
 	if (!device_is_ready(display_dev)) {
