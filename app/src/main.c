@@ -7,10 +7,14 @@
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
+const struct device *const dev_uart3 = DEVICE_DT_GET(DT_NODELABEL(usart3));
 static struct gpio_callback alert_cb;
 
 struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
+
+/*TODO make external to share with console; parameters stolen from uart echo sample*/
+K_MSGQ_DEFINE(uart_msgq, BACNET_MSG_SIZE, 10, 4);
 
 /*END subsystem testing setup and globals*/
 
