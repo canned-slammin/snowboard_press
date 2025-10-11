@@ -4,6 +4,7 @@
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/uart.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/shell/shell.h>
@@ -23,3 +24,4 @@
 #define ALERT         ((1) << (0))
 #define TOGGLE_RELAY1 ((1) << (1))
 #define TOGGLE_RELAY2 ((1) << (2))
+#define BACNET_RX     ((1) << (3))
