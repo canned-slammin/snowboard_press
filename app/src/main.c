@@ -7,14 +7,14 @@
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
 const struct device *const dev_gpioa = DEVICE_DT_GET(DT_NODELABEL(gpioa));
-/*const struct device *const dev_uart3 = DEVICE_DT_GET(DT_NODELABEL(usart3));*/
+const struct device *const dev_uart3 = DEVICE_DT_GET(DT_NODELABEL(usart3));
 static struct gpio_callback alert_cb;
 
 struct k_msgq eventq;
 K_MSGQ_DEFINE(eventq, sizeof(uint32_t), 32, 1);
 
 /*TODO parameters stolen from uart echo sample*/
-/*K_MSGQ_DEFINE(bacnet_msgq, BACNET_MSG_SIZE, 10, 4);*/
+K_MSGQ_DEFINE(bacnet_msgq, BACNET_MSG_SIZE, 10, 4);
 
 /*END subsystem testing setup and globals*/
 
@@ -45,7 +45,26 @@ void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t
 	k_msgq_put(&eventq, &msg, K_NO_WAIT);
 }
 
+void bacnet_rx_cb(const struct device *dev, void *user_data)
+{
+	uint16_t data;
+	uint8_t event = BACNET_RX;
 
+	if (!uart_irq_update(dev_uart3)) {
+		return;
+	}
+
+	if (!uart_irq_rx_ready(dev_uart3)) {
+		return;
+	}
+
+	/*put all received messages into bacnet message queue and send bacnet read event*/
+	while (uart_fifo_read_u16(dev_uart3, &data, 1) == 1) {
+		k_msgq_put(&bacnet_msgq, &data, K_NO_WAIT);
+		k_msgq_put(&eventq, &event, K_NO_WAIT);
+	}
+
+}
 
 /*END subsystem testing callbacks*/
 
@@ -91,14 +110,15 @@ int main(void) {
 	lv_obj_align(alert_label, LV_ALIGN_CENTER, 0, -45);
 
 	/*verify UART is ready*/
-	/*
 	if (!device_is_ready(dev_uart3)) {
 		LOG_ERR("UART3 not ready");
 	}
-	*/
+	// TODO debug
+	else {
+		LOG_INF("UART3 ready");
+	}
 
 	/* configure interrupt and callback to receive data */
-	/*
 	ret = uart_irq_callback_user_data_set(dev_uart3, bacnet_rx_cb, NULL);
 
 	if (ret < 0) {
@@ -111,8 +131,7 @@ int main(void) {
 		}
 		return 0;
 	}
-	uart_irq_rx_enable(dev_uart3);
-	*/
+	uart_irq_rx_enable(dev_uart3); // TODO crashing here
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
@@ -164,9 +183,7 @@ int main(void) {
     while (1) {
 		
 		uint32_t msg = 0;
-		/*
 		uint16_t bacnet_msg = 0;
-		*/
 
 		/*get message from queue*/
 		ret = k_msgq_get(&eventq, &msg, K_NO_WAIT);
@@ -198,14 +215,11 @@ int main(void) {
 		}
 		/*Handle BACNet message received*/
 		/*TODO simplify with polling mechanism*/
-		/*
 		if (msg & BACNET_RX) {
 			while (k_msgq_get(&bacnet_msgq, &bacnet_msg, K_NO_WAIT)) {
 				LOG_INF("BACNet msg: %x", bacnet_msg);
 			}
 		}
-		} 
-		*/
 
 		lv_task_handler();
 		
