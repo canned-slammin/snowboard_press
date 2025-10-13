@@ -131,7 +131,7 @@ int main(void) {
 		}
 		return 0;
 	}
-	uart_irq_rx_enable(dev_uart3); // TODO crashing here
+	uart_irq_rx_enable(dev_uart3); // TODO crashing here - try polling instead. typing into echo_bot example doesn't work.
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
