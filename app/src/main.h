@@ -7,6 +7,7 @@
 #include <zephyr/drivers/uart.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/modbus/modbus.h>
 #include <zephyr/shell/shell.h>
 #include <zephyr/sys/util.h>
 #include <lvgl.h>
@@ -15,7 +16,12 @@
 #include <string.h>
 
 /*bacnet defines*/
-#define BACNET_MSG_SIZE (16)
+/*#define BACNET_MSG_SIZE (16)*/
+
+
+/*TODO debug*/
+/*Modbus client interface*/
+extern int client_iface;
 
 #define ALERT_PIN  ((gpio_pin_t) 8u)
 #define RELAY1_PIN ((gpio_pin_t) 9u)

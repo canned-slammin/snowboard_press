@@ -78,7 +78,7 @@
 };
 
 &usart3 {
-	current-speed = <38400>;
+	current-speed = <115200>; /* TODO need to change for watlow connection */
 	pinctrl-0 = <&usart3_tx_pc4 &usart3_rx_pc5>;
 	pinctrl-names = "default";
 	status = "okay";
