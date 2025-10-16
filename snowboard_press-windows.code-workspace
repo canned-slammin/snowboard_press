@@ -210,7 +210,7 @@
 				"device": "STM32L476RG",
 				"interface": "swd",
 				"serialNumber": "", //If you have more than one J-Link probe, add the serial number here.
-				"svdFile": "${workspaceFolder}/svd/STM32L476.svd",
+				"svdFile": "C:/Users/sdbur/zephyrproject/snowboard_press/app/svd/STM32L476.svd",
 				"armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin"
 			},
 			{
@@ -226,7 +226,7 @@
 				"device": "STM32L476RG",
 				"interface": "swd",
 				"serialNumber": "", //If you have more than one J-Link probe, add the serial number here.
-				"svdFile": "${workspaceFolder}/svd/STM32L476.svd",
+				"svdFile": "C:/Users/sdbur/zephyrproject/snowboard_press/app/svd/STM32L476.svd",
 				"armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin"
 			}
 		]

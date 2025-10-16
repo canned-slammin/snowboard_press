@@ -49,19 +49,31 @@ void bacnet_rx_cb(const struct device *dev, void *user_data)
 {
 	uint16_t data;
 	uint8_t event = BACNET_RX;
+	// debug
+	int ret = 0;
 
-	if (!uart_irq_update(dev_uart3)) {
+	ret = uart_irq_update(dev_uart3);
+	if (ret != 1) {
 		return;
 	}
 
-	if (!uart_irq_rx_ready(dev_uart3)) {
+	ret = uart_irq_rx_ready(dev_uart3);
+	if (ret != 1) {
 		return;
 	}
 
 	/*put all received messages into bacnet message queue and send bacnet read event*/
+	/*
 	while (uart_fifo_read_u16(dev_uart3, &data, 1) == 1) {
 		k_msgq_put(&bacnet_msgq, &data, K_NO_WAIT);
 		k_msgq_put(&eventq, &event, K_NO_WAIT);
+	}
+	*/
+	ret = uart_fifo_read_u16(dev_uart3, &data, 1);
+	while (ret == 1) { // error return 0xffff ff7a (-ENOTSUP – If API is not enabled.)
+		k_msgq_put(&bacnet_msgq, &data, K_NO_WAIT);
+		k_msgq_put(&eventq, &event, K_NO_WAIT);
+		ret = uart_fifo_read_u16(dev_uart3, &data, 1);
 	}
 
 }
@@ -131,7 +143,7 @@ int main(void) {
 		}
 		return 0;
 	}
-	uart_irq_rx_enable(dev_uart3); // TODO crashing here - try polling instead. typing into echo_bot example doesn't work.
+	uart_irq_rx_enable(dev_uart3); // TODO as soon as this is enabled, the interrupt is constantly firing
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {
