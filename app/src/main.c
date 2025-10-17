@@ -144,6 +144,7 @@ int main(void) {
 		return 0;
 	}
 	uart_irq_rx_enable(dev_uart3); // TODO as soon as this is enabled, the interrupt is constantly firing
+	// TODO verified via uart sniffer that the interrupt example can work on this uart3; time to strip this down and start over on UART
 
 	/*set up gpio pins*/
 	if (!device_is_ready(dev_gpioa)) {

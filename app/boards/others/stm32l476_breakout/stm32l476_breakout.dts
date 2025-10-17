@@ -21,6 +21,7 @@
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
 		zephyr,bt-c2h-uart = &usart1; /* probably unnecessary */
+		bacnet,uart = &usart3;
 	};
 
 	sdram2: memory@10000000 {
