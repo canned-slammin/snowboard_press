@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
@@ -14,9 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/*bacnet defines*/
 #define BACNET_MSG_SIZE (16)
-
 
 #define ALERT_PIN  ((gpio_pin_t) 8u)
 #define RELAY1_PIN ((gpio_pin_t) 9u)
@@ -26,3 +25,4 @@
 #define TOGGLE_RELAY1 ((1) << (1))
 #define TOGGLE_RELAY2 ((1) << (2))
 #define BACNET_RX     ((1) << (3))
+*/
