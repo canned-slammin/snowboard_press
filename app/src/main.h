@@ -1,6 +1,5 @@
 #pragma once
 
-/*
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
@@ -25,4 +24,3 @@
 #define TOGGLE_RELAY1 ((1) << (1))
 #define TOGGLE_RELAY2 ((1) << (2))
 #define BACNET_RX     ((1) << (3))
-*/
