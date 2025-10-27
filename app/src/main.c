@@ -18,7 +18,7 @@ K_MSGQ_DEFINE(uart_msgq, MSG_SIZE, 10, 4);
 static const struct device *const uart_dev = DEVICE_DT_GET(DT_NODELABEL(usart3));
 
 /* receive buffer used in UART ISR callback */
-static char rx_buf[MSG_SIZE];
+static uint8_t rx_buf[MSG_SIZE];
 static int rx_buf_pos;
 
 /*
@@ -40,8 +40,6 @@ void serial_cb(const struct device *dev, void *user_data)
 	/* read until FIFO empty */
 	while (uart_fifo_read(uart_dev, &c, 1) == 1) {
 		if ((c == '\n' || c == '\r') && rx_buf_pos > 0) {
-			/* terminate string */
-			rx_buf[rx_buf_pos] = '\0';
 
 			/* if queue is full, message is silently dropped */
 			k_msgq_put(&uart_msgq, &rx_buf, K_NO_WAIT);
@@ -105,6 +103,16 @@ void alert_callback(const struct device *dev, struct gpio_callback *cb, uint32_t
 	/*add ALERT to queue*/
 	uint32_t msg = ALERT;
 	k_msgq_put(&eventq, &msg, K_NO_WAIT);
+}
+
+/*
+ * Print an un-terminated byte array to the UART interface
+ */
+void print_byte_array(uint8_t *buf, uint8_t buf_size)
+{
+	for (int i = 0; i < buf_size; i++) {
+		uart_poll_out(uart_dev, buf[i]);
+	}
 }
 
 
@@ -240,7 +248,7 @@ int main(void) {
 		/* indefinitely wait for input from the user */
 		while (k_msgq_get(&uart_msgq, &tx_buf, K_FOREVER) == 0) {
 			print_uart("Echo: ");
-			print_uart(tx_buf);
+			print_byte_array(tx_buf, BACNET_MSG_SIZE);
 			print_uart("\r\n");
 		}
 		/*END echo bot*/

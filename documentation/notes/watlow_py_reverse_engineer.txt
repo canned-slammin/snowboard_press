@@ -128,3 +128,10 @@ MODBUS
 <Additional address> <Function code> <Data> <Error Check>
                      [-------- PDU -------]
 
+55 FF 05 10 00 00 06 E8 01 03 01 04 01 01 E3 99
+h55 hFF h05 h10 h00 h00 h06 hE8 h01 h03 h01 h04 h01 h01 hE3 h99
+55FF0510000006E8010301040101E399
+55FF0510000006E8
+010301040101E399
+
+
