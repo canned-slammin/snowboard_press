@@ -21,6 +21,11 @@ static const struct device *const uart_dev = DEVICE_DT_GET(DT_NODELABEL(usart3))
 static uint8_t rx_buf[MSG_SIZE];
 static int rx_buf_pos;
 
+/*TODO callback that reads fifo into bacnet chunks*/
+/*preamble?/
+/*length?/
+/*ok i definitely need to get these from sniffing the watlow*/
+
 /*
  * Read characters from UART until line end is detected. Afterwards push the
  * data to the message queue.
@@ -219,6 +224,7 @@ int main(void) {
 	}
 
 	/* configure interrupt and callback to receive data */
+	/* TODO replace with callback that waits for BACNet message */
 	ret = uart_irq_callback_user_data_set(uart_dev, serial_cb, NULL);
 
 	if (ret < 0) {
@@ -246,11 +252,13 @@ int main(void) {
 		/*START echo bot*/
 		/*TODO this is just going to hog the whole event loop*/
 		/* indefinitely wait for input from the user */
+		/*
 		while (k_msgq_get(&uart_msgq, &tx_buf, K_FOREVER) == 0) {
 			print_uart("Echo: ");
 			print_byte_array(tx_buf, BACNET_MSG_SIZE);
 			print_uart("\r\n");
 		}
+		*/
 		/*END echo bot*/
 
 		/*get message from queue*/
@@ -258,6 +266,25 @@ int main(void) {
 		if (ret == 0) {
 			LOG_INF("msg: %x\r\n", msg);
 		}
+
+		/*
+		TODO: button that sends a READ watlow message for process analog value (top)
+		*/
+		/*
+		TODO: button that sends a READ watlow message for process analog value (bottom)
+		*/
+		/*
+		TODO: button that sends a READ watlow message for process setpoint value (top)
+		*/
+		/*
+		TODO: button that sends a READ watlow message for process setpoint value (bottom)
+		*/
+		/*
+		TODO: button that sends a WRITE watlow message (+1) for process setpoint value (top)
+		*/
+		/*
+		TODO: button that sends a WRITE watlow message (+1) for process setpoint value (bottom)
+		*/
 
 		/*handle ALERT msg*/
 		if (msg & ALERT) {
