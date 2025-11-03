@@ -20,7 +20,7 @@
 #define RELAY1_PIN ((gpio_pin_t) 9u)
 #define RELAY2_PIN ((gpio_pin_t) 10u)
 
-#define ALERT         ((1) << (0))
-#define TOGGLE_RELAY1 ((1) << (1))
-#define TOGGLE_RELAY2 ((1) << (2))
-#define BACNET_RX     ((1) << (3))
+#define ALERT         ((1ul) << (0))
+#define TOGGLE_RELAY1 ((1ul) << (1))
+#define TOGGLE_RELAY2 ((1ul) << (2))
+#define BACNET_RX     ((1ul) << (3))

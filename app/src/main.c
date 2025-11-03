@@ -21,10 +21,6 @@ static const struct device *const uart_dev = DEVICE_DT_GET(DT_NODELABEL(usart3))
 static uint8_t rx_buf[MSG_SIZE];
 static int rx_buf_pos;
 
-/*TODO callback that reads fifo into bacnet chunks*/
-/*preamble?/
-/*length?/
-/*ok i definitely need to get these from sniffing the watlow*/
 
 /*
  * Read characters from UART until line end is detected. Afterwards push the
@@ -121,7 +117,21 @@ void print_byte_array(uint8_t *buf, uint8_t buf_size)
 }
 
 
+/*TODO read request callback*/
+/*
+different behavior based on int or float
+zone, parameter, channel, data, float/int
+this initially will be a hardcoded message with static crc sections
+
+assemble message
+
+send message over UART (or queue event to send message?)
+
+*/
+
 /*END subsystem testing callbacks*/
+
+
 
 int main(void) {
 
@@ -164,6 +174,8 @@ int main(void) {
 
 	alert_label = lv_label_create(lv_scr_act());
 	lv_obj_align(alert_label, LV_ALIGN_CENTER, 0, -45);
+
+	/*TODO process value indicators - top/bottom setpoint and analog value*/
 
 
 	/*set up gpio pins*/
@@ -224,7 +236,7 @@ int main(void) {
 	}
 
 	/* configure interrupt and callback to receive data */
-	/* TODO replace with callback that waits for BACNet message */
+	/* TODO this doesn't have to be an interrupt - we can poll for response after a read request is sent */
 	ret = uart_irq_callback_user_data_set(uart_dev, serial_cb, NULL);
 
 	if (ret < 0) {
@@ -269,6 +281,21 @@ int main(void) {
 
 		/*
 		TODO: button that sends a READ watlow message for process analog value (top)
+		send read request (int or float?)
+		queue event for sending read request to watlow
+		*/
+		/*
+		TODO event handler for writing watlow data
+		call send_watlow_command
+		if read request, queue event for reading watlow data
+		*/
+		/*
+		TODO event handler for reading watlow data
+		call read_watlow_data
+		queue event for updating watlow indicator with relevant data
+		*/
+		/*
+		TODO event handler for updating watlow indicators
 		*/
 		/*
 		TODO: button that sends a READ watlow message for process analog value (bottom)
