@@ -134,4 +134,80 @@ h55 hFF h05 h10 h00 h00 h06 hE8 h01 h03 h01 h04 h01 h01 hE3 h99
 55FF0510000006E8
 010301040101E399
 
+Sniffing results
+
+dev.read()
+{'address': 1, 'param': 4001, 'data': 68.6900634765625, 'error': None}
+h55 hFF h05 h10 h00 h00 h06 hE8 h01 h03 h01 h04 h01 h01 hE3 h99
+h55 hFF h06 h00 h10 h00 h0B h88 h02 h03 h01 h04 h01 h01 h08 h42 h8B h7E hB4 h92 hD9 
+
+dev2.read()
+{'address': 2, 'param': 4001, 'data': 70.83934020996094, 'error': None}
+h55 hFF h05 h11 h00 h00 h06 h61 h01 h03 h01 h04 h01 h01 hE3 h99
+h55 hFF h06 h00 h11 h00 h0B h10 h02 h03 h01 h04 h01 h01 h08 h42 h8D hAD hBE h42 hD5
+
+dev.readSetpoint()
+{'address': 1, 'param': 7001, 'data': 67.0, 'error': None}
+h55 hFF h05 h10 h00 h00 h06 hE8 h01 h03 h01 h07 h01 h01 h87 h76
+h55 hFF h06 h00 h10 h00 h0B h88 h02 h03 h01 h07 h01 h01 h08 h42 h86 h00 h00 h46 h35 
+
+dev2.readSetpoint()
+{'address': 2, 'param': 7001, 'data': 69.0, 'error': None}
+h55 hFF h05 h11 h00 h00 h06 h61 h01 h03 h01 h07 h01 h01 h87 h76
+h55 hFF h06 h00 h11 h00 h0B h10 h02 h03 h01 h07 h01 h01 h08 h42 h8A h00 h00 hE5 h90 
+
+dev.write(70)
+{'address': 1, 'param': 7001, 'data': 70.0, 'error': None}
+h55 hFF h05 h10 h00 h00 hEC h01 h04 h07 h01 h01 h08 h42 h8C h00 h00 hE4 hAB
+h55 hFF h06 h00 h10 h00 h76 h02 h04 h07 h01 h01 h08 h42 h8C h00 h00 h8D hDF
+
+dev2.write(70)
+{'address': 2, 'param': 7001, 'data': 70.0, 'error': None}
+h55 hFF h05 h11 h00 h00 h65 h01 h04 h07 h01 h01 h08 h42 h8C h00 h00 hE4 hAB 
+h55 hFF h06 h00 h11 h00 hEE h02 h04 h07 h01 h01 h08 h42 h8C h00 h00 h8D hDF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
